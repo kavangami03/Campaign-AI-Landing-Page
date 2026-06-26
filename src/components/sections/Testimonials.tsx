@@ -115,7 +115,7 @@ function Testimonials() {
   return (
     <section
       id="customers"
-      className="bg-[#09090B] py-20 md:py-28 relative z-20 overflow-hidden border-t border-white/5"
+      className="bg-[#09090B] py-20 md:py-28 relative z-20 overflow-hidden"
     >
       {/* Background Glow */}
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[1000px] h-[600px] bg-primary/10 rounded-[100%] blur-[120px] pointer-events-none" />

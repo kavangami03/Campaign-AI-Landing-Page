@@ -8,6 +8,7 @@ import { Preloader } from "@/components/Preloader";
 
 const MassiveFeatureGrid = React.lazy(() => import("@/components/sections/MassiveFeatureGrid"));
 const InteractiveSolutions = React.lazy(() => import("@/components/sections/InteractiveSolutions"));
+const CampaignGallery = React.lazy(() => import("@/components/sections/CampaignGallery"));
 const Testimonials = React.lazy(() => import("@/components/sections/Testimonials"));
 const Pricing = React.lazy(() => import("@/components/sections/Pricing"));
 const FAQ = React.lazy(() => import("@/components/sections/FAQ"));
@@ -51,6 +52,7 @@ function LandingPage() {
         <Suspense fallback={<div className="h-[50vh] flex items-center justify-center bg-[#09090B]"><div className="w-8 h-8 rounded-full border-2 border-primary border-t-transparent animate-spin"></div></div>}>
           <MassiveFeatureGrid />
           <InteractiveSolutions />
+          <CampaignGallery />
           <Testimonials />
           <Pricing />
           <FAQ />
