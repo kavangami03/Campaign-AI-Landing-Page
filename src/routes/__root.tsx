@@ -9,28 +9,51 @@ import {
 } from "@tanstack/react-router";
 import { useEffect, type ReactNode } from "react";
 import Lenis from "lenis";
+import { motion } from "motion/react";
+import { AlertCircle, RefreshCw, Home, Compass } from "lucide-react";
 
 import appCss from "../styles.css?url";
 import { reportLovableError } from "../lib/lovable-error-reporting";
 
 function NotFoundComponent() {
   return (
-    <div className="flex min-h-screen items-center justify-center bg-background px-4">
-      <div className="max-w-md text-center">
-        <h1 className="text-7xl font-bold text-foreground">404</h1>
-        <h2 className="mt-4 text-xl font-semibold text-foreground">Page not found</h2>
-        <p className="mt-2 text-sm text-muted-foreground">
-          The page you're looking for doesn't exist or has been moved.
-        </p>
-        <div className="mt-6">
-          <Link
-            to="/"
-            className="inline-flex items-center justify-center rounded-md bg-primary px-4 py-2 text-sm font-medium text-primary-foreground transition-colors hover:bg-primary/90"
+    <div className="flex min-h-screen items-center justify-center bg-[#09090b] px-4 relative overflow-hidden">
+      {/* Background glowing effects */}
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-primary/10 rounded-full blur-[120px] pointer-events-none" />
+      
+      <motion.div 
+        initial={{ opacity: 0, scale: 0.95 }}
+        animate={{ opacity: 1, scale: 1 }}
+        className="relative z-10 max-w-lg w-full rounded-3xl bg-[#0f0f13] border border-white/10 p-8 md:p-12 shadow-[0_0_50px_rgba(0,0,0,0.5)] overflow-hidden text-center"
+      >
+        <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-primary to-orange-500" />
+        
+        <div className="mb-8 flex justify-center relative">
+          <h1 className="text-8xl font-display font-black text-transparent bg-clip-text bg-gradient-to-br from-white to-white/20 select-none">
+            404
+          </h1>
+          <motion.div 
+            animate={{ rotate: 360 }}
+            transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
+            className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-primary/20 pointer-events-none z-[-1]"
           >
-            Go home
-          </Link>
+            <Compass className="w-32 h-32" />
+          </motion.div>
         </div>
-      </div>
+
+        <h2 className="text-2xl font-bold text-white mb-3 tracking-tight">Lost in the void.</h2>
+        <p className="text-neutral-400 text-sm leading-relaxed mb-8">
+          The coordinates you entered don't match any known sectors. Let's get you back on track to scaling your revenue.
+        </p>
+
+        <Link
+          to="/"
+          className="inline-flex items-center justify-center gap-2 px-8 py-3 rounded-full bg-gradient-to-r from-primary to-orange-500 text-white font-semibold hover:opacity-90 transition-opacity shadow-[0_0_20px_rgba(168,85,247,0.3)]"
+        >
+          <Home className="w-4 h-4" />
+          Return to Command Center
+        </Link>
+      </motion.div>
     </div>
   );
 }
@@ -43,32 +66,53 @@ function ErrorComponent({ error, reset }: { error: Error; reset: () => void }) {
   }, [error]);
 
   return (
-    <div className="flex min-h-screen items-center justify-center bg-background px-4">
-      <div className="max-w-md text-center">
-        <h1 className="text-xl font-semibold tracking-tight text-foreground">
-          This page didn't load
-        </h1>
-        <p className="mt-2 text-sm text-muted-foreground">
-          Something went wrong on our end. You can try refreshing or head back home.
-        </p>
-        <div className="mt-6 flex flex-wrap justify-center gap-2">
-          <button
-            onClick={() => {
-              router.invalidate();
-              reset();
-            }}
-            className="inline-flex items-center justify-center rounded-md bg-primary px-4 py-2 text-sm font-medium text-primary-foreground transition-colors hover:bg-primary/90"
-          >
-            Try again
-          </button>
-          <a
-            href="/"
-            className="inline-flex items-center justify-center rounded-md border border-input bg-background px-4 py-2 text-sm font-medium text-foreground transition-colors hover:bg-accent"
-          >
-            Go home
-          </a>
+    <div className="flex min-h-screen items-center justify-center bg-[#09090b] px-4 relative overflow-hidden">
+      {/* Background glowing effects */}
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-primary/10 rounded-full blur-[120px] pointer-events-none" />
+      
+      <motion.div 
+        initial={{ opacity: 0, scale: 0.95 }}
+        animate={{ opacity: 1, scale: 1 }}
+        className="relative z-10 max-w-lg w-full rounded-3xl bg-[#0f0f13] border border-white/10 p-8 md:p-12 shadow-[0_0_50px_rgba(0,0,0,0.5)] overflow-hidden"
+      >
+        <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-red-500 via-orange-500 to-red-500" />
+        
+        <div className="mb-8 flex justify-center">
+          <div className="relative inline-flex items-center justify-center w-20 h-20 rounded-2xl bg-red-500/10 border border-red-500/20">
+            <AlertCircle className="w-10 h-10 text-red-500" />
+            <div className="absolute inset-0 rounded-2xl shadow-[inset_0_0_20px_rgba(239,68,68,0.2)] animate-pulse" />
+          </div>
         </div>
-      </div>
+
+        <div className="text-center">
+          <h1 className="font-display text-3xl font-bold text-white mb-3 tracking-tight">
+            System Overload
+          </h1>
+          <p className="text-neutral-400 text-sm leading-relaxed mb-8">
+            Our AI agents encountered an unexpected anomaly. We've logged the error, but you can try rebooting the sequence or returning to the command center.
+          </p>
+
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
+            <button
+              onClick={() => {
+                router.invalidate();
+                reset();
+              }}
+              className="w-full sm:w-auto flex items-center justify-center gap-2 px-6 py-3 rounded-full bg-white text-black font-semibold hover:bg-neutral-200 transition-colors"
+            >
+              <RefreshCw className="w-4 h-4" />
+              Reboot Sequence
+            </button>
+            <Link
+              to="/"
+              className="w-full sm:w-auto flex items-center justify-center gap-2 px-6 py-3 rounded-full bg-[#121217] border border-white/10 text-white font-semibold hover:bg-[#1a1a24] hover:border-white/20 transition-all"
+            >
+              <Home className="w-4 h-4 text-neutral-400" />
+              Command Center
+            </Link>
+          </div>
+        </div>
+      </motion.div>
     </div>
   );
 }
