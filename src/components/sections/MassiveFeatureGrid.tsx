@@ -98,10 +98,7 @@ function MassiveFeatureGrid() {
           {/* ROW 1 */}
           {/* Card 1: 2 Cols */}
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            className="lg:col-span-2 rounded-[32px] border border-white/10 bg-[#0f0f13] overflow-hidden group shadow-2xl relative min-h-[350px] flex flex-col justify-end p-8 md:p-10 hover:border-white/20 transition-colors"
+                                                className="lg:col-span-2 rounded-[32px] border border-white/10 bg-[#0f0f13] overflow-hidden group shadow-2xl relative min-h-[350px] flex flex-col justify-end p-8 md:p-10 hover:border-white/20 transition-colors"
           >
             <div className="absolute inset-0 z-0">
               <img loading="lazy" decoding="async" src={publishingWorkspace}
@@ -127,10 +124,7 @@ function MassiveFeatureGrid() {
 
           {/* Card 2: 1 Col */}
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ delay: 0.1 }}
+                                                transition={{ delay: 0.1 }}
             className="rounded-[32px] border border-white/10 bg-[#0f0f13] p-8 md:p-10 relative overflow-hidden group shadow-2xl flex flex-col hover:border-white/20 transition-colors"
           >
             {/* Mock UI */}
@@ -156,10 +150,7 @@ function MassiveFeatureGrid() {
           {/* ROW 2 */}
           {/* Card 3: 1 Col */}
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            className="rounded-[32px] border border-white/10 bg-[#0f0f13] p-8 md:p-10 relative overflow-hidden group shadow-2xl flex flex-col hover:border-white/20 transition-colors"
+                                                className="rounded-[32px] border border-white/10 bg-[#0f0f13] p-8 md:p-10 relative overflow-hidden group shadow-2xl flex flex-col hover:border-white/20 transition-colors"
           >
             <div className="w-14 h-14 rounded-full bg-primary/20 flex items-center justify-center mb-6 border border-primary/30 group-hover:scale-110 transition-transform">
               <Mail className="w-6 h-6 text-primary" />
@@ -174,10 +165,7 @@ function MassiveFeatureGrid() {
 
           {/* Card 4: 1 Col */}
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ delay: 0.1 }}
+                                                transition={{ delay: 0.1 }}
             className="rounded-[32px] border border-white/10 bg-[#0f0f13] p-8 md:p-10 relative overflow-hidden group shadow-2xl flex flex-col hover:border-white/20 transition-colors"
           >
             <div className="w-14 h-14 rounded-full bg-green-500/20 flex items-center justify-center mb-6 border border-green-500/30 group-hover:scale-110 transition-transform">
@@ -193,10 +181,7 @@ function MassiveFeatureGrid() {
 
           {/* Card 5: 1 Col */}
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ delay: 0.2 }}
+                                                transition={{ delay: 0.2 }}
             className="rounded-[32px] border border-white/10 bg-[#0f0f13] p-8 md:p-10 relative overflow-hidden group shadow-2xl flex flex-col hover:border-white/20 transition-colors"
           >
             <div className="w-14 h-14 rounded-full bg-orange-500/20 flex items-center justify-center mb-6 border border-orange-500/30 group-hover:scale-110 transition-transform">
@@ -214,10 +199,7 @@ function MassiveFeatureGrid() {
           <div className="lg:col-span-3 grid grid-cols-1 md:grid-cols-2 gap-6">
             {/* Card 6 */}
             <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              className="rounded-[32px] border border-white/10 bg-[#0f0f13] overflow-hidden group shadow-2xl relative min-h-[300px] flex flex-col justify-end p-8 md:p-10 hover:border-white/20 transition-colors"
+                                                        className="rounded-[32px] border border-white/10 bg-[#0f0f13] overflow-hidden group shadow-2xl relative min-h-[300px] flex flex-col justify-end p-8 md:p-10 hover:border-white/20 transition-colors"
             >
               <div className="absolute inset-0 z-0">
                 <img loading="lazy" decoding="async" src={journeyBuilder}
@@ -239,10 +221,7 @@ function MassiveFeatureGrid() {
 
             {/* Card 7 */}
             <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: 0.1 }}
+                                                        transition={{ delay: 0.1 }}
               className="rounded-[32px] border border-white/10 bg-[#0f0f13] overflow-hidden group shadow-2xl relative min-h-[300px] flex flex-col justify-end p-8 md:p-10 hover:border-white/20 transition-colors"
             >
               <div className="absolute inset-0 z-0 flex items-center justify-center">
@@ -269,10 +248,7 @@ function MassiveFeatureGrid() {
           <div className="lg:col-span-3 grid grid-cols-1 md:grid-cols-2 gap-6">
             {/* Card 8 */}
             <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              className="rounded-[32px] border border-white/10 bg-[#0f0f13] overflow-hidden group shadow-2xl flex flex-col md:flex-row items-center p-8 gap-8 hover:border-white/20 transition-colors"
+                                                        className="rounded-[32px] border border-white/10 bg-[#0f0f13] overflow-hidden group shadow-2xl flex flex-col md:flex-row items-center p-8 gap-8 hover:border-white/20 transition-colors"
             >
               <div className="w-full md:w-1/2 rounded-2xl overflow-hidden border border-white/10 h-48 relative">
                 <img loading="lazy" decoding="async" src={analytics}
@@ -293,10 +269,7 @@ function MassiveFeatureGrid() {
 
             {/* Card 9 */}
             <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: 0.1 }}
+                                                        transition={{ delay: 0.1 }}
               className="rounded-[32px] border border-white/10 bg-[#0f0f13] overflow-hidden group shadow-2xl flex flex-col md:flex-row-reverse items-center p-8 gap-8 hover:border-white/20 transition-colors"
             >
               <div className="w-full md:w-1/2 rounded-2xl border border-white/10 h-48 bg-white/[0.02] relative overflow-hidden flex items-center justify-center">
@@ -318,10 +291,7 @@ function MassiveFeatureGrid() {
           {/* ROW 5 */}
           {/* Card 10: 2 Cols */}
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            className="lg:col-span-2 rounded-[32px] border border-white/10 bg-[#0f0f13] overflow-hidden group shadow-2xl relative p-8 md:p-10 flex flex-col md:flex-row items-center gap-10 hover:border-white/20 transition-colors"
+                                                className="lg:col-span-2 rounded-[32px] border border-white/10 bg-[#0f0f13] overflow-hidden group shadow-2xl relative p-8 md:p-10 flex flex-col md:flex-row items-center gap-10 hover:border-white/20 transition-colors"
           >
             <div className="w-full md:w-1/2 z-10 relative">
               <h3 className="text-2xl md:text-3xl font-display font-medium text-white mb-2">
@@ -354,10 +324,7 @@ function MassiveFeatureGrid() {
 
           {/* Card 11: 1 Col */}
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ delay: 0.1 }}
+                                                transition={{ delay: 0.1 }}
             className="rounded-[32px] border border-white/10 bg-[#0f0f13] p-8 md:p-10 relative overflow-hidden group shadow-2xl flex flex-col hover:border-white/20 transition-colors"
           >
             <div className="flex -space-x-3 mb-8 mt-4 group-hover:scale-110 transition-transform origin-left">
