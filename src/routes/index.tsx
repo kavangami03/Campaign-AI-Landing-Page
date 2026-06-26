@@ -187,7 +187,7 @@ function Header() {
 const defaultContent = {
   tag: "Next-Gen AI Marketing",
   heading1: "Launch Campaigns",
-  heading2: "That Think Before You Do",
+  heading2: "That Think Before You Do asdasdas",
   description:
     "Generate complete marketing campaigns powered by AI. From strategy to creatives, copy, targeting and optimization—all in one intelligent workspace.",
 };
