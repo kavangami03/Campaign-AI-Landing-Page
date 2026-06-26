@@ -120,7 +120,13 @@ function Header() {
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
-  const nav = ["Product", "Solutions", "Customers", "Pricing", "Resources"];
+  const nav = [
+    { label: "Product", href: "#product" },
+    { label: "Solutions", href: "#solutions" },
+    { label: "Customers", href: "#customers" },
+    { label: "Pricing", href: "#pricing" },
+    { label: "Resources", href: "#resources" }
+  ];
 
   return (
     <header className="fixed inset-x-0 top-0 z-50 flex justify-center px-4 pt-6 header-reveal">
@@ -141,13 +147,17 @@ function Header() {
         <nav className="hidden items-center gap-1 md:flex">
           {nav.map((item, i) => (
             <a
-              key={item}
-              href="#"
+              key={item.label}
+              href={item.href}
+              onClick={(e) => {
+                e.preventDefault();
+                document.querySelector(item.href)?.scrollIntoView({ behavior: 'smooth' });
+              }}
               className="relative rounded-full px-4.5 py-1.5 text-sm text-neutral-300 transition-colors hover:text-white"
               onMouseEnter={() => setHoveredIdx(i)}
               onMouseLeave={() => setHoveredIdx(null)}
             >
-              <span className="relative z-10">{item}</span>
+              <span className="relative z-10">{item.label}</span>
               {hoveredIdx === i && (
                 <motion.span
                   layoutId="header-nav-pill"
@@ -187,7 +197,7 @@ function Header() {
 const defaultContent = {
   tag: "Next-Gen AI Marketing",
   heading1: "Launch Campaigns",
-  heading2: "That Think Before You Do asdasdas",
+  heading2: "That Think Before You Do",
   description:
     "Generate complete marketing campaigns powered by AI. From strategy to creatives, copy, targeting and optimization—all in one intelligent workspace.",
 };
@@ -582,7 +592,7 @@ function Hero() {
 
 function MassiveFeatureGrid() {
   return (
-    <section className="bg-[#09090B] py-32 px-4 md:px-6 relative z-20 border-t border-white/5 overflow-hidden">
+    <section id="product" className="bg-[#09090B] py-32 px-4 md:px-6 relative z-20 border-t border-white/5 overflow-hidden">
       {/* Background Gradient */}
       <div className="absolute top-1/4 -left-[10%] w-[800px] h-[800px] bg-primary/10 rounded-full blur-[120px] pointer-events-none" />
       <div className="max-w-[1400px] mx-auto relative z-10">
@@ -1339,7 +1349,7 @@ function Testimonials() {
   const duplicatedRow2 = [...row2, ...row2, ...row2];
 
   return (
-    <section className="bg-[#09090B] py-32 relative z-20 overflow-hidden border-t border-white/5">
+    <section id="customers" className="bg-[#09090B] py-32 relative z-20 overflow-hidden border-t border-white/5">
       {/* Background Glow */}
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[1000px] h-[600px] bg-primary/10 rounded-[100%] blur-[120px] pointer-events-none" />
 
@@ -1483,7 +1493,7 @@ function FAQ() {
   ];
   const [open, setOpen] = useState<number | null>(0);
   return (
-    <section className="bg-[#09090B] py-24 md:py-32 relative z-20 border-t border-white/5 overflow-hidden">
+    <section id="resources" className="bg-[#09090B] py-24 md:py-32 relative z-20 border-t border-white/5 overflow-hidden">
       {/* Background Gradient */}
       <div className="absolute top-1/2 -right-[10%] w-[800px] h-[800px] bg-blue-500/10 rounded-full blur-[120px] pointer-events-none" />
       
@@ -1734,7 +1744,7 @@ function InteractiveSolutions() {
   ];
 
   return (
-    <section className="bg-[#09090B] py-32 px-4 md:px-6 relative z-20 overflow-hidden">
+    <section id="solutions" className="bg-[#09090B] py-32 px-4 md:px-6 relative z-20 overflow-hidden">
       {/* Background Gradient */}
       <div className="absolute top-1/2 -right-[10%] w-[800px] h-[800px] bg-orange-500/10 rounded-full blur-[120px] pointer-events-none" />
       <div className="max-w-[1400px] mx-auto relative z-10">
@@ -1873,7 +1883,7 @@ function Pricing() {
   ];
 
   return (
-    <section className="bg-[#09090B] py-32 px-4 md:px-6 relative z-20 border-t border-white/5 overflow-hidden">
+    <section id="pricing" className="bg-[#09090B] py-32 px-4 md:px-6 relative z-20 border-t border-white/5 overflow-hidden">
       {/* Background Gradient */}
       <div className="absolute top-1/4 -left-[10%] w-[800px] h-[800px] bg-primary/10 rounded-full blur-[120px] pointer-events-none" />
       <div className="max-w-[1400px] mx-auto relative z-10">
