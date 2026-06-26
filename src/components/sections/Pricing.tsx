@@ -171,11 +171,7 @@ function Pricing() {
           {tiers.map((tier, i) => (
             <motion.div
               key={tier.name}
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: i * 0.1 }}
-              className={`relative rounded-3xl p-8 md:p-10 flex flex-col group ${tier.highlighted ? "bg-[#0f0f13] border-none shadow-[0_0_50px_rgba(168,85,247,0.15)] transform lg:-translate-y-4 z-10" : "bg-[#09090b] border border-white/10 hover:bg-[#0f0f13] transition-colors duration-300 z-0"}`}
+                                                                      className={`relative rounded-3xl p-8 md:p-10 flex flex-col group ${tier.highlighted ? "bg-[#0f0f13] border-none shadow-[0_0_50px_rgba(168,85,247,0.15)] transform lg:-translate-y-4 z-10" : "bg-[#09090b] border border-white/10 hover:bg-[#0f0f13] transition-colors duration-300 z-0"}`}
             >
               {tier.highlighted && (
                 <>
