@@ -651,7 +651,7 @@ function MassiveFeatureGrid() {
   return (
     <section
       id="product"
-      className="bg-[#09090B] py-32 px-4 md:px-6 relative z-20 border-t border-white/5 overflow-hidden"
+      className="bg-[#09090B] py-20 md:py-28 px-4 md:px-6 relative z-20 border-t border-white/5 overflow-hidden"
     >
       {/* Background Gradient */}
       <div className="absolute top-1/4 -left-[10%] w-[800px] h-[800px] bg-primary/10 rounded-full blur-[120px] pointer-events-none" />
@@ -1411,7 +1411,7 @@ function Testimonials() {
   return (
     <section
       id="customers"
-      className="bg-[#09090B] py-32 relative z-20 overflow-hidden border-t border-white/5"
+      className="bg-[#09090B] py-20 md:py-28 relative z-20 overflow-hidden border-t border-white/5"
     >
       {/* Background Glow */}
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[1000px] h-[600px] bg-primary/10 rounded-[100%] blur-[120px] pointer-events-none" />
@@ -1835,7 +1835,7 @@ function InteractiveSolutions() {
   return (
     <section
       id="solutions"
-      className="bg-[#09090B] py-32 px-4 md:px-6 relative z-20 overflow-hidden"
+      className="bg-[#09090B] py-20 md:py-28 px-4 md:px-6 relative z-20 overflow-hidden"
     >
       {/* Background Gradient */}
       <div className="absolute top-1/2 -right-[10%] w-[800px] h-[800px] bg-orange-500/10 rounded-full blur-[120px] pointer-events-none" />
@@ -1977,7 +1977,7 @@ function Pricing() {
   return (
     <section
       id="pricing"
-      className="bg-[#09090B] py-32 px-4 md:px-6 relative z-20 border-t border-white/5 overflow-hidden"
+      className="bg-[#09090B] py-20 md:py-28 md:px-6 relative z-20 border-t border-white/5 overflow-hidden"
     >
       {/* Background Gradient */}
       <div className="absolute top-1/4 -left-[10%] w-[800px] h-[800px] bg-primary/10 rounded-full blur-[120px] pointer-events-none" />
