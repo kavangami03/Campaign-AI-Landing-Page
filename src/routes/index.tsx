@@ -1,8 +1,10 @@
-import React, { Suspense } from 'react';
+import React, { Suspense, useState } from 'react';
 import { createFileRoute } from "@tanstack/react-router";
+import { AnimatePresence } from "motion/react";
 
 import Header from "@/components/sections/Header";
 import Hero from "@/components/sections/Hero";
+import { Preloader } from "@/components/Preloader";
 
 const MassiveFeatureGrid = React.lazy(() => import("@/components/sections/MassiveFeatureGrid"));
 const InteractiveSolutions = React.lazy(() => import("@/components/sections/InteractiveSolutions"));
@@ -35,8 +37,14 @@ export const Route = createFileRoute("/")({
 });
 
 function LandingPage() {
+  const [loading, setLoading] = useState(true);
+
   return (
     <div className="min-h-screen bg-background text-[var(--text-primary)]">
+      <AnimatePresence>
+        {loading && <Preloader onComplete={() => setLoading(false)} />}
+      </AnimatePresence>
+
       <Header />
       <main>
         <Hero />
@@ -55,3 +63,4 @@ function LandingPage() {
     </div>
   );
 }
+

@@ -413,10 +413,10 @@ function Hero() {
                   transition={{ duration: 0.4 }}
                   className="flex flex-col items-center text-center"
                 >
-                  <h1 className="font-display text-4xl md:text-5xl lg:text-6xl font-extrabold leading-[1.1] tracking-tight text-white drop-shadow-2xl mb-4 max-w-5xl mx-auto">
+                  <h1 className="font-display text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold leading-[1.1] tracking-tight text-white drop-shadow-2xl mb-4 max-w-5xl mx-auto">
                     One platform for everything your marketing team does:
                   </h1>
-                  <div className="h-[60px] md:h-[80px] lg:h-[100px] w-full flex justify-center items-center overflow-hidden">
+                  <div className="min-h-[80px] md:min-h-[100px] w-full flex justify-center items-center">
                     <AnimatePresence mode="popLayout">
                       <motion.div
                         key={index}
@@ -424,12 +424,12 @@ function Hero() {
                         animate={{ y: 0, opacity: 1 }}
                         exit={{ y: -50, opacity: 0 }}
                         transition={{ duration: 0.4, ease: "easeOut" }}
-                        className="flex items-center justify-center gap-3 md:gap-4"
+                        className="flex flex-col sm:flex-row items-center justify-center gap-2 md:gap-4"
                       >
                         <div className="bg-gradient-to-r from-primary via-blue-500 to-primary bg-[length:200%_auto] animate-gradient-x text-white p-2 md:p-3 rounded-full flex-shrink-0 shadow-[0_0_20px_rgba(168,85,247,0.4)]">
                           {rotatingFeatures[index].icon}
                         </div>
-                        <span className="font-display text-4xl md:text-5xl lg:text-6xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-primary via-blue-500 to-primary bg-[length:200%_auto] animate-gradient-x pb-2">
+                        <span className="font-display text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-primary via-blue-500 to-primary bg-[length:200%_auto] animate-gradient-x pb-2 text-center leading-tight sm:whitespace-nowrap">
                           {rotatingFeatures[index].text}
                         </span>
                       </motion.div>

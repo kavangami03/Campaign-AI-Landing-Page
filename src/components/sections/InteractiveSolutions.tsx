@@ -71,7 +71,7 @@ function InteractiveSolutions() {
       subtitle: "Drive conversions on autopilot.",
       description:
         "Let the agent analyze your catalog, write compelling ad copy, and automatically deploy A/B tests across Meta and Google to find your winning ROAS.",
-      image: "/images/ecommerce-dashboard.png",
+      image: analytics,
     },
     {
       id: "agencies",
@@ -79,7 +79,7 @@ function InteractiveSolutions() {
       subtitle: "Scale without scaling headcount.",
       description:
         "Manage dozens of clients from a single command center, with automated reporting and white-labeled campaign generation powered by AI.",
-      image: "/images/agency-workspace.png",
+      image: publishingWorkspace,
     },
     {
       id: "creators",
@@ -87,7 +87,7 @@ function InteractiveSolutions() {
       subtitle: "Turn your audience into a business.",
       description:
         "Automate your DMs, launch engaging newsletters, and push content across all your social channels simultaneously.",
-      image: "/images/content_creators_dashboard.png",
+      image: aiBrain,
     },
   ];
 
@@ -118,9 +118,28 @@ function InteractiveSolutions() {
           </h2>
         </div>
 
-        <div className="grid lg:grid-cols-[1fr_2fr] gap-8 lg:gap-12 items-start">
+        
+        {/* Mobile Layout: Horizontal Snap Carousel */}
+        <div className="flex lg:hidden overflow-x-auto snap-x snap-mandatory gap-4 pb-8 hide-scrollbar w-full px-4 -mx-4 md:px-6 md:-mx-6">
+          {solutions.map((sol) => (
+            <div key={sol.id} className="min-w-[85vw] md:min-w-[60vw] snap-center rounded-3xl border border-white/10 bg-[#121217] overflow-hidden flex flex-col shadow-2xl">
+              <div className="relative aspect-video overflow-hidden">
+                <div className="absolute inset-0 bg-gradient-to-t from-[#121217] via-transparent to-transparent z-10" />
+                <img loading="lazy" decoding="async" src={sol.image} alt={sol.title} className="w-full h-full object-cover object-top opacity-90" />
+              </div>
+              <div className="p-6 relative z-20 flex flex-col flex-1">
+                <h3 className="font-display text-2xl font-bold text-white mb-1">{sol.title}</h3>
+                <p className="text-sm font-semibold text-transparent bg-clip-text bg-gradient-to-r from-primary to-orange-400 mb-4">{sol.subtitle}</p>
+                <p className="text-neutral-300 text-sm leading-relaxed flex-1">{sol.description}</p>
+              </div>
+            </div>
+          ))}
+        </div>
+
+        {/* Desktop Layout: Interactive Tabs */}
+        <div className="hidden lg:grid lg:grid-cols-[1fr_2fr] gap-8 lg:gap-12 items-start">
           {/* Left Side: Tabs */}
-          <div className="flex flex-col gap-4 relative">
+          <div className="flex flex-col gap-4 relative pl-4 md:pl-0">
             {solutions.map((sol, idx) => (
               <button
                 key={sol.id}
