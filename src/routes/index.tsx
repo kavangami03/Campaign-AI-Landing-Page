@@ -125,7 +125,7 @@ function Header() {
     { label: "Solutions", href: "#solutions" },
     { label: "Customers", href: "#customers" },
     { label: "Pricing", href: "#pricing" },
-    { label: "Resources", href: "#resources" }
+    { label: "Resources", href: "#resources" },
   ];
 
   return (
@@ -151,7 +151,7 @@ function Header() {
               href={item.href}
               onClick={(e) => {
                 e.preventDefault();
-                document.querySelector(item.href)?.scrollIntoView({ behavior: 'smooth' });
+                document.querySelector(item.href)?.scrollIntoView({ behavior: "smooth" });
               }}
               className="relative rounded-full px-4.5 py-1.5 text-sm text-neutral-300 transition-colors hover:text-white"
               onMouseEnter={() => setHoveredIdx(i)}
@@ -433,16 +433,19 @@ function Hero() {
 
   const [index, setIndex] = useState(0);
 
-  const rotatingFeatures = useMemo(() => [
-    { text: "campaigns, generated", icon: <Wand2 className="w-8 h-8 md:w-10 md:h-10" /> },
-    { text: "analytics, tracked", icon: <BarChart3 className="w-8 h-8 md:w-10 md:h-10" /> },
-    { text: "socials, automated", icon: <Globe className="w-8 h-8 md:w-10 md:h-10" /> },
-    { text: "creatives, perfected", icon: <Sparkles className="w-8 h-8 md:w-10 md:h-10" /> },
-    { text: "emails, delivered", icon: <Mail className="w-8 h-8 md:w-10 md:h-10" /> },
-    { text: "leads, converted", icon: <Users className="w-8 h-8 md:w-10 md:h-10" /> },
-    { text: "workflows, streamlined", icon: <Workflow className="w-8 h-8 md:w-10 md:h-10" /> },
-    { text: "branding, elevated", icon: <Star className="w-8 h-8 md:w-10 md:h-10" /> }
-  ], []);
+  const rotatingFeatures = useMemo(
+    () => [
+      { text: "campaigns, generated", icon: <Wand2 className="w-8 h-8 md:w-10 md:h-10" /> },
+      { text: "analytics, tracked", icon: <BarChart3 className="w-8 h-8 md:w-10 md:h-10" /> },
+      { text: "socials, automated", icon: <Globe className="w-8 h-8 md:w-10 md:h-10" /> },
+      { text: "creatives, perfected", icon: <Sparkles className="w-8 h-8 md:w-10 md:h-10" /> },
+      { text: "emails, delivered", icon: <Mail className="w-8 h-8 md:w-10 md:h-10" /> },
+      { text: "leads, converted", icon: <Users className="w-8 h-8 md:w-10 md:h-10" /> },
+      { text: "workflows, streamlined", icon: <Workflow className="w-8 h-8 md:w-10 md:h-10" /> },
+      { text: "branding, elevated", icon: <Star className="w-8 h-8 md:w-10 md:h-10" /> },
+    ],
+    [],
+  );
 
   useEffect(() => {
     const timer = setInterval(() => {
@@ -646,7 +649,10 @@ function Hero() {
 
 function MassiveFeatureGrid() {
   return (
-    <section id="product" className="bg-[#09090B] py-32 px-4 md:px-6 relative z-20 border-t border-white/5 overflow-hidden">
+    <section
+      id="product"
+      className="bg-[#09090B] py-32 px-4 md:px-6 relative z-20 border-t border-white/5 overflow-hidden"
+    >
       {/* Background Gradient */}
       <div className="absolute top-1/4 -left-[10%] w-[800px] h-[800px] bg-primary/10 rounded-full blur-[120px] pointer-events-none" />
       <div className="max-w-[1400px] mx-auto relative z-10">
@@ -1033,7 +1039,7 @@ function BrainFlow() {
   ];
 
   return (
-    <section className="mx-auto max-w-[1920px] relative overflow-hidden bg-gradient-to-b from-background via-cream/40 to-background py-24 md:py-32">
+    <section className="mx-auto max-w-[1920px] relative overflow-hidden bg-gradient-to-b from-background via-cream/40 to-background py-20 md:py-28">
       <div className="container-editorial">
         <div className="mx-auto max-w-3xl text-center">
           <motion.div {...fadeUp} className="flex justify-center">
@@ -1130,7 +1136,7 @@ function BrainFlow() {
 
 function PublishingShowcase() {
   return (
-    <section className="mx-auto max-w-[1920px] py-24 md:py-32">
+    <section className="mx-auto max-w-[1920px] py-20 md:py-28">
       <div className="container-editorial grid items-center gap-12 lg:grid-cols-2">
         <motion.div {...fadeUp} className="order-2 lg:order-1">
           <div className="overflow-hidden rounded-3xl border border-border bg-card shadow-luxe">
@@ -1213,7 +1219,7 @@ function Pillars() {
     },
   ];
   return (
-    <section className="mx-auto max-w-[1920px] bg-ivory/40 py-24 md:py-32">
+    <section className="mx-auto max-w-[1920px] bg-ivory/40 py-20 md:py-28">
       <div className="container-editorial">
         <div className="grid items-end gap-10 md:grid-cols-[1fr_auto]">
           <motion.div {...fadeUp}>
@@ -1265,7 +1271,7 @@ function Pillars() {
 
 function AnalyticsShowcase() {
   return (
-    <section className="mx-auto max-w-[1920px] py-24 md:py-32">
+    <section className="mx-auto max-w-[1920px] py-20 md:py-28">
       <div className="container-editorial grid items-center gap-12 lg:grid-cols-2">
         <motion.div {...fadeUp} className="max-w-lg">
           <SectionLabel>Performance analytics</SectionLabel>
@@ -1315,7 +1321,7 @@ function AnalyticsShowcase() {
 
 function JourneyShowcase() {
   return (
-    <section className="mx-auto max-w-[1920px] bg-cream/50 py-24 md:py-32">
+    <section className="mx-auto max-w-[1920px] bg-cream/50 py-20 md:py-28">
       <div className="container-editorial">
         <div className="mx-auto max-w-3xl text-center">
           <motion.div {...fadeUp} className="flex justify-center">
@@ -1403,7 +1409,10 @@ function Testimonials() {
   const duplicatedRow2 = [...row2, ...row2, ...row2];
 
   return (
-    <section id="customers" className="bg-[#09090B] py-32 relative z-20 overflow-hidden border-t border-white/5">
+    <section
+      id="customers"
+      className="bg-[#09090B] py-32 relative z-20 overflow-hidden border-t border-white/5"
+    >
       {/* Background Glow */}
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[1000px] h-[600px] bg-primary/10 rounded-[100%] blur-[120px] pointer-events-none" />
 
@@ -1426,11 +1435,14 @@ function Testimonials() {
         </h2>
       </div>
 
-      <div 
-        className="relative flex flex-col gap-8 overflow-hidden" 
-        style={{ maskImage: "linear-gradient(to right, transparent, black 10%, black 90%, transparent)", WebkitMaskImage: "linear-gradient(to right, transparent, black 10%, black 90%, transparent)" }}
+      <div
+        className="relative flex flex-col gap-8 overflow-hidden"
+        style={{
+          maskImage: "linear-gradient(to right, transparent, black 10%, black 90%, transparent)",
+          WebkitMaskImage:
+            "linear-gradient(to right, transparent, black 10%, black 90%, transparent)",
+        }}
       >
-        
         {/* Row 1: Scrolling Left */}
         <div className="flex w-max">
           <motion.div
@@ -1448,7 +1460,11 @@ function Testimonials() {
                 </div>
                 <div className="flex gap-1 mb-6 relative z-10">
                   {[...Array(5)].map((_, i) => (
-                    <svg key={i} className="w-5 h-5 text-orange-400 fill-orange-400 drop-shadow-[0_0_10px_rgba(251,146,60,0.5)]" viewBox="0 0 20 20">
+                    <svg
+                      key={i}
+                      className="w-5 h-5 text-orange-400 fill-orange-400 drop-shadow-[0_0_10px_rgba(251,146,60,0.5)]"
+                      viewBox="0 0 20 20"
+                    >
                       <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
                     </svg>
                   ))}
@@ -1458,9 +1474,9 @@ function Testimonials() {
                 </blockquote>
                 <figcaption className="flex items-center gap-4 relative z-10 mt-auto">
                   <div className="h-12 w-12 rounded-full bg-gradient-to-br from-primary via-blue-500 to-orange-500 p-[2px]">
-                     <div className="h-full w-full rounded-full bg-[#121217] flex items-center justify-center">
-                       <span className="text-white font-bold text-base">{q.n.charAt(0)}</span>
-                     </div>
+                    <div className="h-full w-full rounded-full bg-[#121217] flex items-center justify-center">
+                      <span className="text-white font-bold text-base">{q.n.charAt(0)}</span>
+                    </div>
                   </div>
                   <div>
                     <div className="text-base font-bold text-white">{q.n}</div>
@@ -1489,7 +1505,11 @@ function Testimonials() {
                 </div>
                 <div className="flex gap-1 mb-6 relative z-10">
                   {[...Array(5)].map((_, i) => (
-                    <svg key={i} className="w-5 h-5 text-orange-400 fill-orange-400 drop-shadow-[0_0_10px_rgba(251,146,60,0.5)]" viewBox="0 0 20 20">
+                    <svg
+                      key={i}
+                      className="w-5 h-5 text-orange-400 fill-orange-400 drop-shadow-[0_0_10px_rgba(251,146,60,0.5)]"
+                      viewBox="0 0 20 20"
+                    >
                       <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
                     </svg>
                   ))}
@@ -1499,9 +1519,9 @@ function Testimonials() {
                 </blockquote>
                 <figcaption className="flex items-center gap-4 relative z-10 mt-auto">
                   <div className="h-12 w-12 rounded-full bg-gradient-to-br from-blue-500 to-orange-500 p-[2px]">
-                     <div className="h-full w-full rounded-full bg-[#121217] flex items-center justify-center">
-                       <span className="text-white font-bold text-base">{q.n.charAt(0)}</span>
-                     </div>
+                    <div className="h-full w-full rounded-full bg-[#121217] flex items-center justify-center">
+                      <span className="text-white font-bold text-base">{q.n.charAt(0)}</span>
+                    </div>
                   </div>
                   <div>
                     <div className="text-base font-bold text-white">{q.n}</div>
@@ -1512,7 +1532,6 @@ function Testimonials() {
             ))}
           </motion.div>
         </div>
-
       </div>
     </section>
   );
@@ -1547,10 +1566,13 @@ function FAQ() {
   ];
   const [open, setOpen] = useState<number | null>(0);
   return (
-    <section id="resources" className="bg-[#09090B] py-24 md:py-32 relative z-20 border-t border-white/5 overflow-hidden">
+    <section
+      id="resources"
+      className="bg-[#09090B] py-20 md:py-28 relative z-20 border-t border-white/5 overflow-hidden"
+    >
       {/* Background Gradient */}
       <div className="absolute top-1/2 -right-[10%] w-[800px] h-[800px] bg-blue-500/10 rounded-full blur-[120px] pointer-events-none" />
-      
+
       <div className="max-w-[1400px] mx-auto px-4 md:px-6 relative z-10">
         <div className="grid gap-12 lg:grid-cols-[1fr_1.4fr]">
           <motion.div {...fadeUp} className="max-w-xl">
@@ -1565,7 +1587,10 @@ function FAQ() {
               </span>
             </div>
             <h2 className="font-display text-4xl md:text-5xl lg:text-6xl font-medium text-white tracking-tight">
-              Questions, <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-emerald-400">answered.</span>
+              Questions,{" "}
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-emerald-400">
+                answered.
+              </span>
             </h2>
             <p className="mt-6 text-neutral-400 text-lg">
               Still wondering something specific? Our team is happy to walk your stack through a
@@ -1578,13 +1603,21 @@ function FAQ() {
               const isOpen = open === i;
               return (
                 <motion.div key={it.q} {...fadeUp} transition={{ duration: 0.5, delay: i * 0.04 }}>
-                  <div className={`rounded-2xl border transition-all duration-300 overflow-hidden ${isOpen ? 'bg-white/5 border-white/20 shadow-lg' : 'bg-transparent border-white/5 hover:bg-white/[0.02] hover:border-white/10'}`}>
+                  <div
+                    className={`rounded-2xl border transition-all duration-300 overflow-hidden ${isOpen ? "bg-white/5 border-white/20 shadow-lg" : "bg-transparent border-white/5 hover:bg-white/[0.02] hover:border-white/10"}`}
+                  >
                     <button
                       onClick={() => setOpen(isOpen ? null : i)}
                       className="flex w-full items-center justify-between gap-6 px-6 py-6 text-left"
                     >
-                      <span className={`font-display text-lg md:text-xl font-medium transition-colors ${isOpen ? 'text-white' : 'text-neutral-300'}`}>{it.q}</span>
-                      <div className={`flex items-center justify-center w-8 h-8 rounded-full transition-all duration-300 ${isOpen ? 'bg-blue-500/20 text-blue-400 rotate-180' : 'bg-white/5 text-neutral-500'}`}>
+                      <span
+                        className={`font-display text-lg md:text-xl font-medium transition-colors ${isOpen ? "text-white" : "text-neutral-300"}`}
+                      >
+                        {it.q}
+                      </span>
+                      <div
+                        className={`flex items-center justify-center w-8 h-8 rounded-full transition-all duration-300 ${isOpen ? "bg-blue-500/20 text-blue-400 rotate-180" : "bg-white/5 text-neutral-500"}`}
+                      >
                         <ChevronDown className="h-5 w-5" />
                       </div>
                     </button>
@@ -1592,7 +1625,9 @@ function FAQ() {
                       className={`grid overflow-hidden transition-all duration-500 ${isOpen ? "grid-rows-[1fr] opacity-100" : "grid-rows-[0fr] opacity-0"}`}
                     >
                       <div className="overflow-hidden">
-                        <p className="px-6 pb-6 text-neutral-400 leading-relaxed text-base">{it.a}</p>
+                        <p className="px-6 pb-6 text-neutral-400 leading-relaxed text-base">
+                          {it.a}
+                        </p>
                       </div>
                     </div>
                   </div>
@@ -1612,55 +1647,55 @@ function FAQ() {
 
 function FinalCTA() {
   return (
-    <section className="relative w-full z-20 overflow-hidden bg-[#09090b] border-t border-white/5 py-32 md:py-40">
+    <section className="relative w-full z-20 overflow-hidden bg-[#09090b] border-t border-white/5 py-20 md:py-28">
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[1000px] h-[1000px] bg-gradient-to-r from-primary/20 via-blue-500/10 to-orange-500/20 rounded-full blur-[150px] pointer-events-none" />
       <div className="absolute top-0 left-0 w-full h-[1px] bg-gradient-to-r from-transparent via-white/10 to-transparent" />
 
       <div className="relative z-10 flex flex-col items-center max-w-[1400px] mx-auto px-6 md:px-12 text-center">
         <div className="relative inline-flex items-center justify-center overflow-hidden rounded-full bg-[#121217] px-5 py-2 mb-8 shadow-xl border border-white/10">
-            <motion.div
-              animate={{ x: ["-150%", "150%", "-150%"] }}
-              transition={{ duration: 4, repeat: Infinity, ease: "linear" }}
-              className="absolute inset-0 w-1/2 bg-gradient-to-r from-transparent via-primary/30 to-transparent skew-x-12"
-            />
-            <span className="relative z-10 text-xs font-bold uppercase tracking-widest text-primary drop-shadow-sm">
-              START FREE • NO CREDIT CARD
-            </span>
-          </div>
-
-          <h2 className="mx-auto max-w-4xl font-display text-5xl leading-tight text-white md:text-7xl font-bold tracking-tight mb-8">
-            Your next campaign is{" "}
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary via-blue-400 to-orange-400">
-              one prompt away
-            </span>
-            .
-          </h2>
-
-          <p className="mx-auto max-w-xl text-lg text-neutral-400 mb-12">
-            Join 12,000+ marketing teams making their best work with Lumen.
-          </p>
-
-          <div className="flex flex-wrap items-center justify-center gap-6">
-            <button className="relative group/btn cursor-pointer">
-              <div className="absolute -inset-1 bg-gradient-to-r from-primary via-blue-500 to-orange-500 rounded-full blur opacity-60 group-hover/btn:opacity-100 transition duration-500" />
-              <div className="relative w-full flex items-center justify-center gap-2 rounded-full px-8 py-4 text-base font-bold text-white bg-gradient-to-r from-primary via-blue-500 to-orange-500 bg-[length:200%_auto] bg-left hover:bg-right transition-all duration-700 ease-out overflow-hidden shadow-[inset_0_1px_1px_rgba(255,255,255,0.4)]">
-                <div className="absolute inset-0 w-1/4 h-full bg-gradient-to-r from-transparent via-white/30 to-transparent -skew-x-12 -translate-x-[150%] group-hover/btn:translate-x-[500%] transition-transform duration-1000 ease-in-out" />
-                <span className="relative z-10 drop-shadow-md tracking-wide">Start generating</span>
-                <ArrowRight className="relative z-10 h-5 w-5 transition-transform duration-300 group-hover/btn:translate-x-1" />
-              </div>
-            </button>
-
-            <button className="relative group/btn overflow-hidden rounded-full p-[1px] cursor-pointer">
-              <span className="absolute inset-[-1000%] animate-[spin_3s_linear_infinite] bg-[conic-gradient(from_90deg_at_50%_50%,transparent_0%,rgba(168,85,247,0.5)_50%,transparent_100%)] opacity-0 group-hover/btn:opacity-100 transition-opacity duration-500" />
-              <div className="relative w-full flex items-center justify-center gap-2 rounded-full bg-[#121217] px-8 py-4 text-base font-bold text-white transition-all group-hover/btn:bg-[#1a1a24] overflow-hidden border border-white/10 group-hover/btn:border-transparent">
-                <div className="absolute inset-0 w-1/4 h-full bg-gradient-to-r from-transparent via-white/10 to-transparent -skew-x-12 -translate-x-[150%] group-hover/btn:translate-x-[500%] transition-transform duration-1000 ease-in-out" />
-                <span className="relative z-10 tracking-wide text-neutral-300 group-hover/btn:text-white transition-colors">
-                  Book a demo
-                </span>
-              </div>
-            </button>
-          </div>
+          <motion.div
+            animate={{ x: ["-150%", "150%", "-150%"] }}
+            transition={{ duration: 4, repeat: Infinity, ease: "linear" }}
+            className="absolute inset-0 w-1/2 bg-gradient-to-r from-transparent via-primary/30 to-transparent skew-x-12"
+          />
+          <span className="relative z-10 text-xs font-bold uppercase tracking-widest text-primary drop-shadow-sm">
+            START FREE • NO CREDIT CARD
+          </span>
         </div>
+
+        <h2 className="mx-auto max-w-4xl font-display text-5xl leading-tight text-white md:text-7xl font-bold tracking-tight mb-8">
+          Your next campaign is{" "}
+          <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary via-blue-400 to-orange-400">
+            one prompt away
+          </span>
+          .
+        </h2>
+
+        <p className="mx-auto max-w-xl text-lg text-neutral-400 mb-12">
+          Join 12,000+ marketing teams making their best work with Lumen.
+        </p>
+
+        <div className="flex flex-wrap items-center justify-center gap-6">
+          <button className="relative group/btn cursor-pointer">
+            <div className="absolute -inset-1 bg-gradient-to-r from-primary via-blue-500 to-orange-500 rounded-full blur opacity-60 group-hover/btn:opacity-100 transition duration-500" />
+            <div className="relative w-full flex items-center justify-center gap-2 rounded-full px-8 py-4 text-base font-bold text-white bg-gradient-to-r from-primary via-blue-500 to-orange-500 bg-[length:200%_auto] bg-left hover:bg-right transition-all duration-700 ease-out overflow-hidden shadow-[inset_0_1px_1px_rgba(255,255,255,0.4)]">
+              <div className="absolute inset-0 w-1/4 h-full bg-gradient-to-r from-transparent via-white/30 to-transparent -skew-x-12 -translate-x-[150%] group-hover/btn:translate-x-[500%] transition-transform duration-1000 ease-in-out" />
+              <span className="relative z-10 drop-shadow-md tracking-wide">Start generating</span>
+              <ArrowRight className="relative z-10 h-5 w-5 transition-transform duration-300 group-hover/btn:translate-x-1" />
+            </div>
+          </button>
+
+          <button className="relative group/btn overflow-hidden rounded-full p-[1px] cursor-pointer">
+            <span className="absolute inset-[-1000%] animate-[spin_3s_linear_infinite] bg-[conic-gradient(from_90deg_at_50%_50%,transparent_0%,rgba(168,85,247,0.5)_50%,transparent_100%)] opacity-0 group-hover/btn:opacity-100 transition-opacity duration-500" />
+            <div className="relative w-full flex items-center justify-center gap-2 rounded-full bg-[#121217] px-8 py-4 text-base font-bold text-white transition-all group-hover/btn:bg-[#1a1a24] overflow-hidden border border-white/10 group-hover/btn:border-transparent">
+              <div className="absolute inset-0 w-1/4 h-full bg-gradient-to-r from-transparent via-white/10 to-transparent -skew-x-12 -translate-x-[150%] group-hover/btn:translate-x-[500%] transition-transform duration-1000 ease-in-out" />
+              <span className="relative z-10 tracking-wide text-neutral-300 group-hover/btn:text-white transition-colors">
+                Book a demo
+              </span>
+            </div>
+          </button>
+        </div>
+      </div>
     </section>
   );
 }
@@ -1798,7 +1833,10 @@ function InteractiveSolutions() {
   ];
 
   return (
-    <section id="solutions" className="bg-[#09090B] py-32 px-4 md:px-6 relative z-20 overflow-hidden">
+    <section
+      id="solutions"
+      className="bg-[#09090B] py-32 px-4 md:px-6 relative z-20 overflow-hidden"
+    >
       {/* Background Gradient */}
       <div className="absolute top-1/2 -right-[10%] w-[800px] h-[800px] bg-orange-500/10 rounded-full blur-[120px] pointer-events-none" />
       <div className="max-w-[1400px] mx-auto relative z-10">
@@ -1937,7 +1975,10 @@ function Pricing() {
   ];
 
   return (
-    <section id="pricing" className="bg-[#09090B] py-32 px-4 md:px-6 relative z-20 border-t border-white/5 overflow-hidden">
+    <section
+      id="pricing"
+      className="bg-[#09090B] py-32 px-4 md:px-6 relative z-20 border-t border-white/5 overflow-hidden"
+    >
       {/* Background Gradient */}
       <div className="absolute top-1/4 -left-[10%] w-[800px] h-[800px] bg-primary/10 rounded-full blur-[120px] pointer-events-none" />
       <div className="max-w-[1400px] mx-auto relative z-10">
