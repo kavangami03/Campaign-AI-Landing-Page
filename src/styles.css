@@ -1,0 +1,229 @@
+@import "tailwindcss" source(none);
+@source "../src";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-display: "__Familjen_Grotesk_246f8c", "__Familjen_Grotesk_Fallback_246f8c", system-ui, "Segoe UI", Arial, sans-serif;
+
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --radius-2xl: calc(var(--radius) + 8px);
+  --radius-3xl: calc(var(--radius) + 16px);
+  --radius-4xl: calc(var(--radius) + 24px);
+
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+
+  --color-ivory: var(--ivory);
+  --color-cream: var(--cream);
+  --color-peach: var(--peach);
+  --color-peach-deep: var(--peach-deep);
+  --color-sky: var(--sky);
+  --color-lavender: var(--lavender);
+  --color-mint: var(--mint);
+  --color-ink: var(--ink);
+  --color-ink-soft: var(--ink-soft);
+
+  --shadow-soft: var(--shadow-soft);
+  --shadow-elevated: var(--shadow-elevated);
+  --shadow-luxe: var(--shadow-luxe);
+}
+
+:root {
+  --radius: 0.75rem;
+
+  /* Premium SaaS Dark Theme Palette */
+  --background: #09090B;
+  --foreground: #FFFFFF;
+
+  --secondary: #18181B;
+  --surface-warm: #18181B;
+  
+  --primary: #A855F7;
+  --primary-foreground: #FFFFFF;
+  --primary-light: #C084FC;
+  --primary-hover: #9333EA;
+
+  --success: #10B981;
+
+  --text-primary: #FFFFFF;
+  --text-secondary: #A1A1AA;
+
+  --border: #27272A;
+  --input: #27272A;
+  --ring: #A855F7;
+
+  --shadow-premium: 0 20px 60px rgba(0,0,0,0.5);
+  --shadow-soft: 0 4px 20px rgba(0,0,0,0.3);
+  --shadow-lift: 0 12px 30px rgba(168,85,247,0.2);
+}
+
+@layer base {
+  * { border-color: var(--color-border); }
+  html { scroll-behavior: smooth; }
+  body {
+    background-color: var(--color-background);
+    color: var(--color-foreground);
+    font-family: var(--font-sans);
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+    font-feature-settings: "ss01", "cv11";
+  }
+  ::selection { background: var(--peach); color: var(--ink); }
+}
+
+@utility font-display {
+  font-family: var(--font-display);
+  font-feature-settings: "liga", "dlig";
+  letter-spacing: -0.02em;
+}
+
+@utility text-balance { text-wrap: balance; }
+@utility text-pretty { text-wrap: pretty; }
+
+@utility container-editorial {
+  width: 100%;
+  max-width: 1920px;
+  margin-inline: auto;
+  padding-inline: 1.25rem;
+  @media (min-width: 768px) { padding-inline: 2rem; }
+  @media (min-width: 1280px) { padding-inline: 3rem; }
+  @media (min-width: 1920px) { padding-inline: 4rem; }
+}
+
+@utility bg-grain {
+  background-image:
+    radial-gradient(rgba(120, 80, 40, 0.05) 1px, transparent 1px);
+  background-size: 3px 3px;
+}
+
+@keyframes float-slow {
+  0%, 100% { transform: translateY(0) }
+  50% { transform: translateY(-12px) }
+}
+@keyframes shimmer {
+  0% { background-position: -200% 0 }
+  100% { background-position: 200% 0 }
+}
+@keyframes marquee {
+  from { transform: translateX(0) }
+  to { transform: translateX(-50%) }
+}
+
+@utility animate-float-slow { animation: float-slow 6s ease-in-out infinite; }
+@utility animate-marquee { animation: marquee 40s linear infinite; }
+
+/* Hero spectacular animations */
+@keyframes orbit-cw {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+@keyframes orbit-ccw {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(-360deg); }
+}
+@keyframes gradient-shift {
+  0%, 100% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+}
+@keyframes glow-pulse {
+  0%, 100% { opacity: 0.4; transform: scale(1); }
+  50% { opacity: 0.7; transform: scale(1.05); }
+}
+@keyframes icon-float {
+  0%, 100% { transform: translateY(0) rotate(0deg); }
+  33% { transform: translateY(-8px) rotate(2deg); }
+  66% { transform: translateY(4px) rotate(-1deg); }
+}
+@keyframes line-draw {
+  from { stroke-dashoffset: 1000; }
+  to { stroke-dashoffset: 0; }
+}
+@keyframes text-shimmer {
+  0% { background-position: -200% center; }
+  100% { background-position: 200% center; }
+}
+
+@utility animate-orbit-cw { animation: orbit-cw 60s linear infinite; }
+@utility animate-orbit-ccw { animation: orbit-ccw 45s linear infinite; }
+@utility animate-gradient-shift { animation: gradient-shift 6s ease-in-out infinite; }
+@utility animate-glow-pulse { animation: glow-pulse 4s ease-in-out infinite; }
+@utility animate-icon-float { animation: icon-float 5s ease-in-out infinite; }
+@utility animate-text-shimmer { animation: text-shimmer 3s ease-in-out infinite; }
+
+/* Custom Futuristic Utilities */
+@utility bg-radial-glow {
+  background: radial-gradient(circle at var(--mouse-x, 50%) var(--mouse-y, 50%), rgba(212, 149, 107, 0.15) 0%, transparent 60%);
+}
+
+@utility border-glass-dark {
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+@utility bg-glass-dark {
+  background: rgba(10, 10, 12, 0.7);
+  backdrop-filter: blur(16px);
+}
+
+@utility shadow-neon-peach {
+  box-shadow: 0 0 20px rgba(212, 149, 107, 0.15), inset 0 0 12px rgba(212, 149, 107, 0.05);
+}
+
+@utility shadow-neon-purple {
+  box-shadow: 0 0 20px rgba(139, 92, 246, 0.15), inset 0 0 12px rgba(139, 92, 246, 0.05);
+}
+
+/* Custom scrollbar for terminals */
+@utility scrollbar-none {
+  scrollbar-width: none;
+  &::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+@utility scrollbar-thin {
+  scrollbar-width: thin;
+  scrollbar-color: rgba(255, 255, 255, 0.1) transparent;
+  &::-webkit-scrollbar {
+    width: 4px;
+    height: 4px;
+  }
+  &::-webkit-scrollbar-track {
+    background: transparent;
+  }
+  &::-webkit-scrollbar-thumb {
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 99px;
+  }
+}
+
+@utility bg-grid-pattern {
+  background-size: 32px 32px;
+  background-image: 
+    linear-gradient(to right, rgba(255, 255, 255, 0.02) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
+}
+
+
