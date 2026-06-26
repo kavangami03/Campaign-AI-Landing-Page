@@ -1,6 +1,7 @@
 import { useRef, useMemo, useEffect } from "react";
 import { Canvas, useFrame, useThree } from "@react-three/fiber";
 import * as THREE from "three";
+import { useInView } from "motion/react";
 
 /* ------------------------------------------------------------ */
 /*  GLSL Shaders for Energy Ribbons                             */
@@ -87,9 +88,10 @@ void main() {
 /* ------------------------------------------------------------ */
 /*  Aurora Mesh (Optimized Full Screen Quad)                    */
 /* ------------------------------------------------------------ */
-function AuroraPlane() {
+function AuroraPlane({ isInView }: { isInView: boolean }) {
   const materialRef = useRef<THREE.ShaderMaterial>(null);
   const size = useThree((state) => state.size);
+  const internalTime = useRef(0);
 
   const uniforms = useMemo(() => ({
     uTime: { value: 0 },
@@ -102,9 +104,11 @@ function AuroraPlane() {
     }
   }, [size]);
 
-  useFrame((state) => {
+  useFrame((state, delta) => {
+    if (!isInView) return;
+    internalTime.current += delta;
     if (materialRef.current) {
-      materialRef.current.uniforms.uTime.value = state.clock.elapsedTime;
+      materialRef.current.uniforms.uTime.value = internalTime.current;
     }
   });
 
@@ -128,9 +132,10 @@ function AuroraPlane() {
 /* ------------------------------------------------------------ */
 /*  Cinematic Camera & Particles                                */
 /* ------------------------------------------------------------ */
-function Particles() {
+function Particles({ isInView }: { isInView: boolean }) {
   const pointsRef = useRef<THREE.Points>(null);
   const count = 2000;
+  const internalTime = useRef(0);
 
   const [positions, speeds] = useMemo(() => {
     const pos = new Float32Array(count * 3);
@@ -144,10 +149,10 @@ function Particles() {
     return [pos, spd];
   }, []);
 
-  useFrame((state) => {
-    if (!pointsRef.current) return;
-    const t = state.clock.getElapsedTime();
-    pointsRef.current.rotation.y = t * 0.02;
+  useFrame((state, delta) => {
+    if (!isInView || !pointsRef.current) return;
+    internalTime.current += delta;
+    pointsRef.current.rotation.y = internalTime.current * 0.02;
     
     const pos = pointsRef.current.geometry.attributes.position.array as Float32Array;
     for (let i = 0; i < count; i++) {
@@ -174,7 +179,7 @@ function Particles() {
   );
 }
 
-function CameraRig() {
+function CameraRig({ isInView }: { isInView: boolean }) {
   const { camera } = useThree();
   const mouse = useRef({ x: 0, y: 0 });
 
@@ -188,6 +193,7 @@ function CameraRig() {
   }, []);
 
   useFrame(() => {
+    if (!isInView) return;
     camera.position.x += (mouse.current.x * 2 - camera.position.x) * 0.02;
     camera.position.y += (-mouse.current.y * 2 - camera.position.y) * 0.02;
     camera.lookAt(0, 0, 0);
@@ -196,8 +202,11 @@ function CameraRig() {
 }
 
 export default function HeroCanvas() {
+  const containerRef = useRef<HTMLDivElement>(null);
+  const isInView = useInView(containerRef, { amount: 0 });
+
   return (
-    <div className="absolute inset-0 z-0 h-full w-full bg-[#09090B]">
+    <div ref={containerRef} className="absolute inset-0 z-0 h-full w-full bg-[#09090B]">
       {/* Background radial glows for ambient lighting */}
       <div className="absolute inset-0 opacity-40 mix-blend-screen">
         <div className="absolute top-[20%] left-[30%] h-[600px] w-[600px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-purple-600/20 blur-[120px]" />
@@ -210,11 +219,9 @@ export default function HeroCanvas() {
       <div className="absolute inset-0 opacity-[0.03] mix-blend-overlay pointer-events-none" style={{ backgroundImage: 'url("data:image/svg+xml,%3Csvg viewBox=%220 0 200 200%22 xmlns=%22http://www.w3.org/2000/svg%22%3E%3Cfilter id=%22n%22%3E%3CfeTurbulence type=%22fractalNoise%22 baseFrequency=%220.65%22 numOctaves=%223%22 stitchTiles=%22stitch%22/%3E%3C/filter%3E%3Crect width=%22100%25%22 height=%22100%25%22 filter=%22url(%23n)%22/%3E%3C/svg%3E")' }} />
 
       <Canvas camera={{ position: [0, 0, 6], fov: 45 }} dpr={[1, 1.5]} gl={{ antialias: true, alpha: true }}>
-        {/* Optimized Aurora Shader Quad */}
-        <AuroraPlane />
-        
-        {/* Particles */}
-        <Particles />
+        <AuroraPlane isInView={isInView} />
+        <Particles isInView={isInView} />
+        <CameraRig isInView={isInView} />
       </Canvas>
     </div>
   );

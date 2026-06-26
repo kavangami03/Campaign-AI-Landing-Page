@@ -1,6 +1,7 @@
 // @ts-nocheck
 import React, { useEffect, useMemo, useRef, useCallback } from 'react';
 import { useGesture } from '@use-gesture/react';
+import { useInView } from "motion/react";
 import './DomeGallery.css';
 
 const DEFAULT_IMAGES = [
@@ -123,7 +124,8 @@ export default function DomeGallery({
   openedImageHeight = '350px',
   imageBorderRadius = '30px',
   openedImageBorderRadius = '30px',
-  grayscale = true
+  grayscale = true,
+  autoRotateSpeed = 0.05
 }) {
   const rootRef = useRef(null);
   const mainRef = useRef(null);
@@ -159,12 +161,40 @@ export default function DomeGallery({
 
   const items = useMemo(() => buildItems(images, segments), [images, segments]);
 
-  const applyTransform = (xDeg, yDeg) => {
+  const applyTransform = useCallback((xDeg, yDeg) => {
     const el = sphereRef.current;
     if (el) {
       el.style.transform = `translateZ(calc(var(--radius) * -1)) rotateX(${xDeg}deg) rotateY(${yDeg}deg)`;
     }
-  };
+  }, []);
+
+  const autoRotateRAF = useRef(null);
+  const isInView = useInView(rootRef, { amount: 0 });
+
+  useEffect(() => {
+    if (!isInView || !autoRotateSpeed) {
+      if (autoRotateRAF.current) {
+        cancelAnimationFrame(autoRotateRAF.current);
+        autoRotateRAF.current = null;
+      }
+      return;
+    }
+    const loop = () => {
+      if (!draggingRef.current && !openingRef.current && !inertiaRAF.current) {
+        const nextY = wrapAngleSigned(rotationRef.current.y + autoRotateSpeed);
+        rotationRef.current.y = nextY;
+        applyTransform(rotationRef.current.x, nextY);
+      }
+      autoRotateRAF.current = requestAnimationFrame(loop);
+    };
+    autoRotateRAF.current = requestAnimationFrame(loop);
+    return () => {
+      if (autoRotateRAF.current) {
+        cancelAnimationFrame(autoRotateRAF.current);
+        autoRotateRAF.current = null;
+      }
+    };
+  }, [isInView, autoRotateSpeed, applyTransform]);
 
   const lockedRadiusRef = useRef(null);
 

@@ -13,8 +13,8 @@ const CAMPAIGN_IMAGES = [
     alt: 'Email Marketing Flow'
   },
   {
-    src: 'https://images.unsplash.com/photo-1611162617474-5b21e879e113?q=80&w=1000&auto=format&fit=crop', // Instagram/social
-    alt: 'Visual Content Generation'
+    src: 'https://images.unsplash.com/photo-1542744173-8e7e53415bb0?q=80&w=1000&auto=format&fit=crop', // Marketing Analytics
+    alt: 'Marketing Analytics Dashboard'
   },
   {
     src: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=1000&auto=format&fit=crop', // Data/analytics

@@ -157,7 +157,7 @@ function Testimonials() {
             {duplicatedRow1.map((q, i) => (
               <div
                 key={`${q.n}-${i}`}
-                className="w-[380px] shrink-0 rounded-3xl border border-white/10 bg-white/5 p-8 backdrop-blur-md shadow-2xl relative overflow-hidden group hover:border-primary/50 transition-colors duration-500"
+                className="w-[380px] shrink-0 rounded-3xl border border-white/10 bg-[#15151a] p-8 shadow-2xl relative overflow-hidden group hover:border-primary/50 transition-colors duration-500"
               >
                 <div className="absolute -top-10 -right-10 text-[150px] font-serif leading-none text-white/5 group-hover:text-primary/10 transition-colors duration-500">
                   "
@@ -202,7 +202,7 @@ function Testimonials() {
             {duplicatedRow2.map((q, i) => (
               <div
                 key={`${q.n}-${i}`}
-                className="w-[380px] shrink-0 rounded-3xl border border-white/10 bg-white/5 p-8 backdrop-blur-md shadow-2xl relative overflow-hidden group hover:border-blue-500/50 transition-colors duration-500"
+                className="w-[380px] shrink-0 rounded-3xl border border-white/10 bg-[#15151a] p-8 shadow-2xl relative overflow-hidden group hover:border-blue-500/50 transition-colors duration-500"
               >
                 <div className="absolute -top-10 -right-10 text-[150px] font-serif leading-none text-white/5 group-hover:text-blue-500/10 transition-colors duration-500">
                   "
