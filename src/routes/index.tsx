@@ -179,7 +179,7 @@ function Header() {
           <MagneticButton
             href="#"
             strength={0.2}
-            className="group inline-flex items-center gap-1.5 rounded-full bg-white/10 px-5 py-2.5 text-sm font-semibold text-white backdrop-blur-md transition hover:bg-white/20 border border-white/10"
+            className="group inline-flex items-center gap-1.5 rounded-full bg-gradient-to-r from-primary via-blue-500 to-primary bg-[length:200%_auto] animate-gradient-x px-5 py-2.5 text-sm font-semibold text-white transition-all shadow-[inset_0_1px_1px_rgba(255,255,255,0.4)] border-none"
           >
             Start free
             <ArrowRight className="h-3.5 w-3.5 transition-transform group-hover:translate-x-0.5" />
@@ -431,6 +431,26 @@ function Hero() {
   } | null>(null);
   const [activeContent, setActiveContent] = useState(defaultContent);
 
+  const [index, setIndex] = useState(0);
+
+  const rotatingFeatures = useMemo(() => [
+    { text: "campaigns, generated", icon: <Wand2 className="w-8 h-8 md:w-10 md:h-10" /> },
+    { text: "analytics, tracked", icon: <BarChart3 className="w-8 h-8 md:w-10 md:h-10" /> },
+    { text: "socials, automated", icon: <Globe className="w-8 h-8 md:w-10 md:h-10" /> },
+    { text: "creatives, perfected", icon: <Sparkles className="w-8 h-8 md:w-10 md:h-10" /> },
+    { text: "emails, delivered", icon: <Mail className="w-8 h-8 md:w-10 md:h-10" /> },
+    { text: "leads, converted", icon: <Users className="w-8 h-8 md:w-10 md:h-10" /> },
+    { text: "workflows, streamlined", icon: <Workflow className="w-8 h-8 md:w-10 md:h-10" /> },
+    { text: "branding, elevated", icon: <Star className="w-8 h-8 md:w-10 md:h-10" /> }
+  ], []);
+
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setIndex((prev) => (prev + 1) % rotatingFeatures.length);
+    }, 2500);
+    return () => clearInterval(timer);
+  }, [rotatingFeatures.length]);
+
   const handleIconClick = (e: React.MouseEvent, icon: any) => {
     const rect = e.currentTarget.getBoundingClientRect();
     setClickedIcon({
@@ -512,21 +532,55 @@ function Hero() {
             </motion.div>
           </AnimatePresence>
 
-          <div className="flex items-center justify-center min-h-[160px] md:min-h-[200px] lg:min-h-[220px] w-full">
+          <div className="flex items-center justify-center min-h-[240px] md:min-h-[280px] lg:min-h-[320px] w-full">
             <AnimatePresence mode="wait">
-              <motion.h1
-                key={activeContent.heading1}
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                exit={{ opacity: 0, y: -20 }}
-                transition={{ duration: 0.4 }}
-                className="font-display text-5xl md:text-7xl lg:text-[80px] font-extrabold leading-[1.05] tracking-tight text-white drop-shadow-2xl"
-              >
-                {activeContent.heading1} <br className="hidden md:block" />
-                <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary via-blue-400 to-orange-400 relative">
-                  {activeContent.heading2}
-                </span>
-              </motion.h1>
+              {activeContent === defaultContent ? (
+                <motion.div
+                  key="default"
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  exit={{ opacity: 0, y: -20 }}
+                  transition={{ duration: 0.4 }}
+                  className="flex flex-col items-center text-center"
+                >
+                  <h1 className="font-display text-4xl md:text-5xl lg:text-6xl font-extrabold leading-[1.1] tracking-tight text-white drop-shadow-2xl mb-4 max-w-5xl mx-auto">
+                    One platform for everything your marketing team does:
+                  </h1>
+                  <div className="h-[60px] md:h-[80px] lg:h-[100px] w-full flex justify-center items-center overflow-hidden">
+                    <AnimatePresence mode="popLayout">
+                      <motion.div
+                        key={index}
+                        initial={{ y: 50, opacity: 0 }}
+                        animate={{ y: 0, opacity: 1 }}
+                        exit={{ y: -50, opacity: 0 }}
+                        transition={{ duration: 0.4, ease: "easeOut" }}
+                        className="flex items-center justify-center gap-3 md:gap-4"
+                      >
+                        <div className="bg-gradient-to-r from-primary via-blue-500 to-primary bg-[length:200%_auto] animate-gradient-x text-white p-2 md:p-3 rounded-full flex-shrink-0 shadow-[0_0_20px_rgba(168,85,247,0.4)]">
+                          {rotatingFeatures[index].icon}
+                        </div>
+                        <span className="font-display text-4xl md:text-5xl lg:text-6xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-primary via-blue-500 to-primary bg-[length:200%_auto] animate-gradient-x pb-2">
+                          {rotatingFeatures[index].text}
+                        </span>
+                      </motion.div>
+                    </AnimatePresence>
+                  </div>
+                </motion.div>
+              ) : (
+                <motion.h1
+                  key={activeContent.heading1}
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  exit={{ opacity: 0, y: -20 }}
+                  transition={{ duration: 0.4 }}
+                  className="font-display text-4xl md:text-6xl lg:text-7xl font-extrabold leading-[1.05] tracking-tight text-white drop-shadow-2xl text-center"
+                >
+                  {activeContent.heading1} <br className="hidden md:block" />
+                  <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary via-blue-400 to-orange-400 relative">
+                    {activeContent.heading2}
+                  </span>
+                </motion.h1>
+              )}
             </AnimatePresence>
           </div>
 
@@ -557,7 +611,7 @@ function Hero() {
               <div className="absolute -inset-1 bg-gradient-to-r from-primary via-blue-500 to-orange-500 rounded-full blur-lg opacity-40 group-hover:opacity-80 transition duration-500 group-hover:duration-200" />
 
               {/* Main Button Body with moving gradient */}
-              <div className="relative flex items-center gap-2 rounded-full px-8 py-4 text-base font-bold text-white bg-gradient-to-r from-primary via-blue-500 to-orange-500 bg-[length:200%_auto] bg-left hover:bg-right transition-all duration-700 ease-out overflow-hidden shadow-[inset_0_1px_1px_rgba(255,255,255,0.4)]">
+              <div className="relative flex items-center gap-2 rounded-full px-8 py-4 text-base font-bold text-white bg-gradient-to-r from-primary via-blue-500 to-primary bg-[length:200%_auto] animate-gradient-x overflow-hidden shadow-[inset_0_1px_1px_rgba(255,255,255,0.4)]">
                 {/* Shine effect */}
                 <div className="absolute inset-0 w-1/4 h-full bg-gradient-to-r from-transparent via-white/30 to-transparent -skew-x-12 -translate-x-[150%] group-hover:translate-x-[500%] transition-transform duration-1000 ease-in-out" />
 
