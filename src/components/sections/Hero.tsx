@@ -266,6 +266,7 @@ const FloatingIcon = ({ icon, i, hoveredIcon, setHoveredIcon, handleIconClick }:
           ease: "easeInOut",
           delay: i * 0.2,
         }}
+        style={{ willChange: "transform" }}
       >
         <motion.div
           whileHover={{ scale: 1.25, rotate: 0 }}
@@ -278,7 +279,7 @@ const FloatingIcon = ({ icon, i, hoveredIcon, setHoveredIcon, handleIconClick }:
         >
           <img decoding="async" loading="eager" src={icon.src}
             alt={icon.name}
-            className="h-12 w-12 md:h-14 md:w-14 object-contain drop-shadow-2xl opacity-90 group-hover:opacity-100 transition-opacity relative z-10"
+            className="h-12 w-12 md:h-14 md:w-14 object-contain drop-shadow-md opacity-90 group-hover:opacity-100 transition-opacity relative z-10"
           />
         </motion.div>
       </motion.div>

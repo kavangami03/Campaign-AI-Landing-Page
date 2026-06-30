@@ -39,7 +39,7 @@ float noise(in vec3 x) {
 float fbm(vec3 p) {
     float f = 0.0;
     float w = 0.5;
-    for (int i = 0; i < 4; i++) {
+    for (int i = 0; i < 2; i++) {
         f += w * noise(p);
         p *= 2.0;
         w *= 0.5;
@@ -134,7 +134,7 @@ function AuroraPlane({ isInView }: { isInView: boolean }) {
 /* ------------------------------------------------------------ */
 function Particles({ isInView }: { isInView: boolean }) {
   const pointsRef = useRef<THREE.Points>(null);
-  const count = 2000;
+  const count = 500;
   const internalTime = useRef(0);
 
   const [positions, speeds] = useMemo(() => {
@@ -208,17 +208,17 @@ export default function HeroCanvas() {
   return (
     <div ref={containerRef} className="absolute inset-0 z-0 h-full w-full bg-[#09090B]">
       {/* Background radial glows for ambient lighting */}
-      <div className="absolute inset-0 opacity-40 mix-blend-screen">
+      <div className="absolute inset-0 opacity-40">
         <div className="absolute top-[20%] left-[30%] h-[600px] w-[600px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-purple-600/20 blur-[120px]" />
         <div className="absolute top-[40%] right-[20%] h-[500px] w-[500px] rounded-full bg-blue-600/20 blur-[100px]" />
         <div className="absolute bottom-[10%] left-[50%] h-[400px] w-[400px] rounded-full bg-orange-500/10 blur-[100px]" />
       </div>
 
       {/* Tiny dotted grid overlay & Noise */}
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(255,255,255,0.08)_1px,transparent_1px)] bg-[length:24px_24px] pointer-events-none opacity-40 mix-blend-overlay" />
-      <div className="absolute inset-0 opacity-[0.03] mix-blend-overlay pointer-events-none" style={{ backgroundImage: 'url("data:image/svg+xml,%3Csvg viewBox=%220 0 200 200%22 xmlns=%22http://www.w3.org/2000/svg%22%3E%3Cfilter id=%22n%22%3E%3CfeTurbulence type=%22fractalNoise%22 baseFrequency=%220.65%22 numOctaves=%223%22 stitchTiles=%22stitch%22/%3E%3C/filter%3E%3Crect width=%22100%25%22 height=%22100%25%22 filter=%22url(%23n)%22/%3E%3C/svg%3E")' }} />
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(255,255,255,0.08)_1px,transparent_1px)] bg-[length:24px_24px] pointer-events-none opacity-40" />
+      <div className="absolute inset-0 opacity-[0.03] pointer-events-none" style={{ backgroundImage: 'url("data:image/svg+xml,%3Csvg viewBox=%220 0 200 200%22 xmlns=%22http://www.w3.org/2000/svg%22%3E%3Cfilter id=%22n%22%3E%3CfeTurbulence type=%22fractalNoise%22 baseFrequency=%220.65%22 numOctaves=%223%22 stitchTiles=%22stitch%22/%3E%3C/filter%3E%3Crect width=%22100%25%22 height=%22100%25%22 filter=%22url(%23n)%22/%3E%3C/svg%3E")' }} />
 
-      <Canvas camera={{ position: [0, 0, 6], fov: 45 }} dpr={[1, 1.5]} gl={{ antialias: true, alpha: true }}>
+      <Canvas camera={{ position: [0, 0, 6], fov: 45 }} dpr={[0.5, 1]} gl={{ antialias: false, alpha: true }}>
         <AuroraPlane isInView={isInView} />
         <Particles isInView={isInView} />
         <CameraRig isInView={isInView} />
