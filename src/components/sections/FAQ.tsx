@@ -64,16 +64,16 @@ import { SectionLabel, H2, fadeUp } from './Shared';
 function FAQ() {
   const items = [
     {
-      q: "What exactly does Lumen generate from a prompt?",
-      a: "Lumen generates campaign strategy, copy, visuals, audience segments, channel-specific variants and a publishing schedule â€” all editable and on-brand.",
+      q: "What exactly does CampaignX generate from a prompt?",
+      a: "CampaignX generates campaign strategy, copy, visuals, audience segments, channel-specific variants and a publishing schedule â€” all editable and on-brand.",
     },
     {
-      q: "Which channels does Lumen support today?",
+      q: "Which channels does CampaignX support today?",
       a: "Email, WhatsApp, Instagram, Facebook, LinkedIn, YouTube, SMS, RCS and Voice â€” plus webhook integrations into your existing stack.",
     },
     {
-      q: "How does Lumen learn our brand voice?",
-      a: "Connect a website, upload brand guidelines, or paste past campaigns. Lumen builds a private brand model used in every generation.",
+      q: "How does CampaignX learn our brand voice?",
+      a: "Connect a website, upload brand guidelines, or paste past campaigns. CampaignX builds a private brand model used in every generation.",
     },
     {
       q: "Is our data used to train shared models?",

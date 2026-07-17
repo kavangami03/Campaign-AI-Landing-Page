@@ -1,4 +1,3 @@
-
 import {
   motion,
   useScroll,
@@ -90,6 +89,13 @@ function InteractiveSolutions() {
       image: aiBrain,
     },
   ];
+
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setActiveTab((prev) => (prev + 1) % solutions.length);
+    }, 4000);
+    return () => clearInterval(timer);
+  }, [activeTab, solutions.length]);
 
   return (
     <section

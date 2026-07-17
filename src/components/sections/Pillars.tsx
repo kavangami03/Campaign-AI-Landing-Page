@@ -67,14 +67,14 @@ function Pillars() {
       label: "Brand voice",
       Icon: Wand2,
       title: "Trained on your brand. Faithful to your taste.",
-      copy: "Upload a guideline doc, a few past campaigns or a website URL â€” Lumen absorbs your tone, vocabulary and visual identity.",
+      copy: "Upload a guideline doc, a few past campaigns or a website URL â€” CampaignX absorbs your tone, vocabulary and visual identity.",
       bg: "bg-peach/40",
     },
     {
       label: "Personalization",
       Icon: Users,
       title: "Crafted for every segment, automatically.",
-      copy: "Lumen generates variants for each audience â€” from first-time visitors to high-LTV regulars â€” without the manual matrix.",
+      copy: "CampaignX generates variants for each audience â€” from first-time visitors to high-LTV regulars â€” without the manual matrix.",
       bg: "bg-sky/50",
     },
     {

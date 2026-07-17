@@ -78,12 +78,7 @@ function Footer() {
         <div className="grid gap-16 lg:grid-cols-[1.5fr_2.5fr]">
           <div>
             <div className="flex items-center gap-2 mb-6">
-              <div className="grid h-10 w-10 place-items-center rounded-xl bg-gradient-to-br from-primary to-blue-500 shadow-[0_0_20px_rgba(168,85,247,0.4)] text-white">
-                <Sparkles className="h-5 w-5" />
-              </div>
-              <span className="font-display text-3xl font-bold text-white tracking-tight">
-                Lumen
-              </span>
+              <img src="/images/CampaignX-logo.svg" alt="CampaignX Logo" className="h-10 w-auto" />
             </div>
             <p className="max-w-xs text-base text-neutral-400 leading-relaxed mb-8">
               The AI campaign agent for marketing teams who care about craft, clarity and results.
@@ -132,13 +127,13 @@ function Footer() {
         {/* Massive Typography */}
         <div className="w-full flex justify-center pt-10 pb-4 select-none pointer-events-none relative">
           <h2 className="text-[12vw] leading-none font-display font-black text-transparent bg-clip-text bg-gradient-to-b from-white/10 to-transparent">
-            L U M E N
+            CampaignX
           </h2>
         </div>
 
         {/* Bottom Bar */}
         <div className="flex flex-col md:flex-row items-center justify-between gap-4 py-8 border-t border-white/5 text-sm text-neutral-500 relative z-10">
-          <p>© {new Date().getFullYear()} Lumen Labs, Inc. All rights reserved.</p>
+          <p>© {new Date().getFullYear()} CampaignX, Inc. All rights reserved.</p>
           <div className="flex gap-6">
             <a href="#" className="hover:text-white transition-colors">
               Privacy

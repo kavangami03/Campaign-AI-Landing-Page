@@ -93,10 +93,7 @@ function Header() {
           }`}
         >
         <a href="#" className="flex items-center gap-2 pl-3 group">
-          <div className="grid h-8 w-8 place-items-center rounded-full bg-gradient-to-br from-primary to-blue-500 text-white shadow-[0_0_15px_rgba(168,85,247,0.4)] transition-transform duration-500 group-hover:rotate-180">
-            <Sparkles className="h-4 w-4" />
-          </div>
-          <span className="font-display text-xl tracking-tight text-white">Lumen</span>
+          <img src="/images/CampaignX-logo.svg" alt="CampaignX Logo" className="h-8 w-auto" />
         </a>
 
         <nav className="hidden items-center gap-1 md:flex">

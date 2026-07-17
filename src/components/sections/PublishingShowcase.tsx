@@ -69,7 +69,7 @@ function PublishingShowcase() {
           <div className="overflow-hidden rounded-3xl border border-border bg-card shadow-luxe">
             <img
               src={publishingWorkspace}
-              alt="Lumen campaign publishing workspace with calendar and scheduled posts"
+              alt="CampaignX campaign publishing workspace with calendar and scheduled posts"
               width={1280}
               height={900}
               loading="lazy"
@@ -88,7 +88,7 @@ function PublishingShowcase() {
           </H2>
           <p className="mt-5 text-lg leading-relaxed text-ink-soft">
             Plan your week visually. Drag a campaign across email, WhatsApp, Instagram and SMS â€”
-            Lumen handles the channel-specific formatting, timing and audience splits automatically.
+            CampaignX handles the channel-specific formatting, timing and audience splits automatically.
           </p>
           <ul className="mt-7 space-y-3">
             {[

@@ -71,7 +71,7 @@ function AnalyticsShowcase() {
             Every send, learned from. <span className="italic">Every result, explained.</span>
           </H2>
           <p className="mt-5 text-lg leading-relaxed text-ink-soft">
-            Beautiful, opinionated dashboards surface what's working â€” and Lumen writes the
+            Beautiful, opinionated dashboards surface what's working â€” and CampaignX writes the
             narrative so anyone on the team can act on it within minutes.
           </p>
           <div className="mt-8 grid grid-cols-2 gap-4">
@@ -94,7 +94,7 @@ function AnalyticsShowcase() {
           <div className="overflow-hidden rounded-3xl border border-border bg-card shadow-luxe">
             <img
               src={analytics}
-              alt="Lumen analytics dashboard with revenue, conversions and audience segmentation"
+              alt="CampaignX analytics dashboard with revenue, conversions and audience segmentation"
               width={1280}
               height={900}
               loading="lazy"

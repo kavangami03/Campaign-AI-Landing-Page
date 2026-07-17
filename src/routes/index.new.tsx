@@ -13,13 +13,13 @@ import Footer from "@/components/sections/Footer";
 export const Route = createFileRoute("/index/new")({
   head: () => ({
     meta: [
-      { title: "Lumen â€” The AI Campaign Agent for Modern Marketing Teams" },
+      { title: "CampaignX â€” The AI Campaign Agent for Modern Marketing Teams" },
       {
         name: "description",
         content:
-          "Lumen turns a single prompt into beautifully crafted, omnichannel marketing campaigns â€” orchestrated across email, WhatsApp, Instagram, SMS, LinkedIn and more.",
+          "CampaignX turns a single prompt into beautifully crafted, omnichannel marketing campaigns â€” orchestrated across email, WhatsApp, Instagram, SMS, LinkedIn and more.",
       },
-      { property: "og:title", content: "Lumen â€” The AI Campaign Agent" },
+      { property: "og:title", content: "CampaignX â€” The AI Campaign Agent" },
       {
         property: "og:description",
         content:

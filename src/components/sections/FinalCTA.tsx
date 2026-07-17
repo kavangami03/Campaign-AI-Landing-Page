@@ -88,7 +88,7 @@ function FinalCTA() {
         </h2>
 
         <p className="mx-auto max-w-xl text-lg text-neutral-400 mb-12">
-          Join 12,000+ marketing teams making their best work with Lumen.
+          Join 12,000+ marketing teams making their best work with CampaignX.
         </p>
 
         <div className="flex flex-wrap items-center justify-center gap-6">

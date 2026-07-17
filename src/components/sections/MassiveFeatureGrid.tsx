@@ -237,7 +237,7 @@ function MassiveFeatureGrid() {
                   Deep AI Reasoning
                 </h3>
                 <p className="text-neutral-400 text-sm md:text-base max-w-sm">
-                  Lumen analyzes your brand voice and past performance data to craft the perfect
+                  CampaignX analyzes your brand voice and past performance data to craft the perfect
                   editorial tone.
                 </p>
               </div>

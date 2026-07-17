@@ -146,20 +146,20 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "Lumen — The AI Campaign Agent for Modern Marketing Teams" },
-      { name: "description", content: "Lumen turns a single prompt into beautifully crafted campaigns across email, WhatsApp, Instagram, SMS and more — orchestrated, personalized, and measurable." },
+      { title: "CampaignX — The AI Campaign Agent for Modern Marketing Teams" },
+      { name: "description", content: "CampaignX turns a single prompt into beautifully crafted campaigns across email, WhatsApp, Instagram, SMS and more — orchestrated, personalized, and measurable." },
       { property: "og:type", content: "website" },
-      { property: "og:site_name", content: "Lumen" },
+      { property: "og:site_name", content: "CampaignX" },
       { name: "twitter:card", content: "summary_large_image" },
-      { property: "og:title", content: "Lumen — The AI Campaign Agent for Modern Marketing Teams" },
-      { name: "twitter:title", content: "Lumen — The AI Campaign Agent for Modern Marketing Teams" },
-      { property: "og:description", content: "Lumen turns a single prompt into beautifully crafted campaigns across email, WhatsApp, Instagram, SMS and more — orchestrated, personalized, and measurable." },
-      { name: "twitter:description", content: "Lumen turns a single prompt into beautifully crafted campaigns across email, WhatsApp, Instagram, SMS and more — orchestrated, personalized, and measurable." },
+      { property: "og:title", content: "CampaignX — The AI Campaign Agent for Modern Marketing Teams" },
+      { name: "twitter:title", content: "CampaignX — The AI Campaign Agent for Modern Marketing Teams" },
+      { property: "og:description", content: "CampaignX turns a single prompt into beautifully crafted campaigns across email, WhatsApp, Instagram, SMS and more — orchestrated, personalized, and measurable." },
+      { name: "twitter:description", content: "CampaignX turns a single prompt into beautifully crafted campaigns across email, WhatsApp, Instagram, SMS and more — orchestrated, personalized, and measurable." },
       { property: "og:image", content: "/og-image.png" },
       { name: "twitter:image", content: "/og-image.png" },
     ],
     links: [
-      { rel: "icon", href: "/favicon.png", type: "image/png" },
+      { rel: "icon", href: "/images/fav.svg", type: "image/svg+xml" },
       { rel: "preconnect", href: "https://fonts.googleapis.com" },
       { rel: "preconnect", href: "https://fonts.gstatic.com", crossOrigin: "anonymous" },
       { rel: "stylesheet", href: "https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Instrument+Serif:ital@0;1&display=swap" },
@@ -178,7 +178,7 @@ function RootShell({ children }: { children: ReactNode }) {
       <head>
         <HeadContent />
       </head>
-      <body>
+      <body className="overflow-x-hidden w-full relative max-w-[100vw]">
         {children}
         <Scripts />
       </body>

@@ -18,13 +18,13 @@ const Footer = React.lazy(() => import("@/components/sections/Footer"));
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "Lumen The AI Campaign Agent for Modern Marketing Teams" },
+      { title: "CampaignX The AI Campaign Agent for Modern Marketing Teams" },
       {
         name: "description",
         content:
-          "Lumen turns a single prompt into beautifully crafted, omnichannel marketing campaigns orchestrated across email, WhatsApp, Instagram, SMS, LinkedIn and more.",
+          "CampaignX turns a single prompt into beautifully crafted, omnichannel marketing campaigns orchestrated across email, WhatsApp, Instagram, SMS, LinkedIn and more.",
       },
-      { property: "og:title", content: "Lumen The AI Campaign Agent" },
+      { property: "og:title", content: "CampaignX The AI Campaign Agent" },
       {
         property: "og:description",
         content:
@@ -41,7 +41,7 @@ function LandingPage() {
   const [loading, setLoading] = useState(true);
 
   return (
-    <div className="min-h-screen bg-background text-[var(--text-primary)]">
+    <div className="min-h-screen bg-background text-[var(--text-primary)] overflow-x-hidden relative max-w-[100vw]">
       <AnimatePresence>
         {loading && <Preloader onComplete={() => setLoading(false)} />}
       </AnimatePresence>

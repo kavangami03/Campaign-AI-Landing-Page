@@ -6,7 +6,7 @@ import { SectionLabel, H2, fadeUp } from './Shared';
 function Testimonials() {
   const testimonials = [
     {
-      q: "Lumen is the first marketing tool that feels like a thoughtful colleague rather than another dashboard.",
+      q: "CampaignX is the first marketing tool that feels like a thoughtful colleague rather than another dashboard.",
       n: "Maya Chen",
       r: "VP Marketing, Northwave",
     },
@@ -26,7 +26,7 @@ function Testimonials() {
       r: "Founder, Bloom",
     },
     {
-      q: "Our email open rates doubled. Lumen just knows exactly how to speak to our core demographic.",
+      q: "Our email open rates doubled. CampaignX just knows exactly how to speak to our core demographic.",
       n: "Michael Chang",
       r: "Director of CRM, Vibe",
     },
@@ -41,7 +41,7 @@ function Testimonials() {
       r: "Creative Director, Nexus",
     },
     {
-      q: "Customer acquisition cost dropped by 40% since we let Lumen handle the A/B testing variations.",
+      q: "Customer acquisition cost dropped by 40% since we let CampaignX handle the A/B testing variations.",
       n: "Amanda Clarke",
       r: "Growth Lead, FinTech Plus",
     },

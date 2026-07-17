@@ -72,7 +72,7 @@ function JourneyShowcase() {
           <motion.div {...fadeUp} transition={{ duration: 0.7, delay: 0.1 }}>
             <H2 className="mt-5">
               Design the experience.{" "}
-              <span className="italic text-ink-soft">Lumen runs the rest.</span>
+              <span className="italic text-ink-soft">CampaignX runs the rest.</span>
             </H2>
           </motion.div>
         </div>

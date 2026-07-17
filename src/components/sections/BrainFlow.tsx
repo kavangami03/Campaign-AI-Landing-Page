@@ -82,7 +82,7 @@ function BrainFlow() {
       <div className="container-editorial">
         <div className="mx-auto max-w-3xl text-center">
           <motion.div {...fadeUp} className="flex justify-center">
-            <SectionLabel>The Lumen agent</SectionLabel>
+            <SectionLabel>The CampaignX agent</SectionLabel>
           </motion.div>
           <motion.div {...fadeUp} transition={{ duration: 0.7, delay: 0.1 }}>
             <H2 className="mt-5">
@@ -94,7 +94,7 @@ function BrainFlow() {
             transition={{ duration: 0.7, delay: 0.18 }}
             className="mx-auto mt-5 max-w-xl text-lg text-ink-soft"
           >
-            Lumen reasons across your brand, your audience and every channel â€” then drafts the
+            CampaignX reasons across your brand, your audience and every channel â€” then drafts the
             copy, art-directs the creative and schedules the send.
           </motion.p>
         </div>
@@ -123,7 +123,7 @@ function BrainFlow() {
           >
             <img
               src={aiBrain}
-              alt="Lumen AI agent reasoning across brand, audience and channels"
+              alt="CampaignX AI agent reasoning across brand, audience and channels"
               width={1024}
               height={1024}
               loading="lazy"
@@ -132,7 +132,7 @@ function BrainFlow() {
             <div className="pointer-events-none absolute inset-x-0 bottom-4 text-center">
               <div className="inline-flex items-center gap-2 rounded-full border border-border bg-card/80 px-3 py-1.5 text-xs text-ink-soft backdrop-blur">
                 <span className="h-1.5 w-1.5 animate-pulse rounded-full bg-primary" />
-                Lumen is reasoningâ€¦
+                CampaignX is reasoningâ€¦
               </div>
             </div>
           </motion.div>

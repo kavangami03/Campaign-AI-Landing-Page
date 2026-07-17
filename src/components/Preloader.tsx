@@ -79,7 +79,7 @@ export function Preloader({ onComplete }: { onComplete: () => void }) {
             className="text-[15vw] md:text-[12vw] font-black tracking-tighter text-transparent select-none"
             style={{ WebkitTextStroke: "1px rgba(255,255,255,0.15)" }}
           >
-            LUMEN
+            CampaignX
           </h1>
 
           {/* Filled Gradient Text acting as clipping mask */}
@@ -90,7 +90,7 @@ export function Preloader({ onComplete }: { onComplete: () => void }) {
               transition: "clip-path 0.1s linear"
             }}
           >
-            LUMEN
+            CampaignX
           </h1>
         </div>
         
