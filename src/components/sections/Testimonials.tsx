@@ -1,7 +1,5 @@
 
 import { motion } from "motion/react";
-import { useRef } from "react";
-import { SectionLabel, H2, fadeUp } from './Shared';
 
 function Testimonials() {
   const testimonials = [

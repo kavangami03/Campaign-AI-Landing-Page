@@ -1,53 +1,20 @@
 
 import {
-  motion,
-  useScroll,
-  useTransform,
-  AnimatePresence,
-  useMotionValue,
-  useSpring,
-} from "motion/react";
-import { useRef, useState, useEffect, useMemo } from "react";
-import { InteractiveTooltip } from "@/components/ui/interactive-tooltip";
-import {
-  Sparkles,
-  ArrowRight,
-  ArrowUpRight,
-  Check,
-  Mail,
-  MessageCircle,
-  Instagram,
-  Facebook,
-  Linkedin,
-  Youtube,
-  Phone,
-  Send,
-  Star,
-  Shield,
-  Zap,
-  BarChart3,
-  Workflow,
   Globe,
-  Users,
-  Calendar,
-  ChevronDown,
-  Wand2,
-  Twitter,
-  Twitch,
-  Figma,
-  Slack,
-  Github,
-  Dribbble,
+  Mail,
+  Send,
+  Workflow,
+  Zap
 } from "lucide-react";
+import {
+  motion
+} from "motion/react";
 
 import aiBrain from "@/assets/ai-brain.jpg";
-import publishingWorkspace from "@/assets/publishing-workspace.jpg";
 import analytics from "@/assets/analytics.jpg";
+import publishingWorkspace from "@/assets/publishing-workspace.jpg";
 
-import { AppIcon } from "@/components/ui/app-icons";
 import journeyBuilder from "@/assets/journey-builder.jpg";
-import HeroCanvas from "@/components/hero-canvas";
-import { MagneticButton, AnimatedCounter } from "@/components/hero-animations";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 
@@ -59,7 +26,6 @@ gsap.registerPlugin(ScrollTrigger);
 /*  Shared                                                          */
 /* ---------------------------------------------------------------- */
 
-import { SectionLabel, H2, fadeUp } from './Shared';
 
 function MassiveFeatureGrid() {
   return (

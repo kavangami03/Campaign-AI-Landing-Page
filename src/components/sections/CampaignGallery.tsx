@@ -1,7 +1,5 @@
-import React from "react";
 import DomeGallery from "@/components/ui/DomeGallery";
 import { motion } from "motion/react";
-import { SectionLabel } from "./Shared";
 
 const CAMPAIGN_IMAGES = [
   {
