@@ -13,6 +13,7 @@ import { motion } from "motion/react";
 import { AlertCircle, RefreshCw, Home, Compass } from "lucide-react";
 
 import appCss from "../styles.css?url";
+import LiveKitTheme from "@/components/ui/LiveKitTheme";
 
 function NotFoundComponent() {
   return (
@@ -181,6 +182,15 @@ function RootShell({ children }: { children: ReactNode }) {
       <body className="overflow-x-hidden w-full relative max-w-[100vw]">
         {children}
         <Scripts />
+        <LiveKitTheme />
+        {/* LiveKit voice agent widget. Must be a parser-inserted classic script at
+            the end of <body>: the bundle reads config from document.currentScript
+            (null for async scripts) and synchronously calls document.body.appendChild. */}
+        <script
+          src="https://cloud.livekit.io/embed-popup.js"
+          data-lk-agent="CA_j8uznGS4JH4g"
+          data-lk-color="#a855f7"
+        />
       </body>
     </html>
   );
