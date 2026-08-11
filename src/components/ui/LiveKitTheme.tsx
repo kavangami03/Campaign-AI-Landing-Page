@@ -12,7 +12,19 @@ import { useEffect } from "react";
  * Values must be unwrapped components, not full color functions, or the
  * surrounding oklch()/rgb() call becomes invalid and the rule is dropped.
  */
+const MIC_SVG =
+  "url('data:image/svg+xml;utf8," +
+  encodeURIComponent(
+    '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" ' +
+      'stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">' +
+      '<rect x="9" y="2" width="6" height="12" rx="3"/>' +
+      '<path d="M5 10a7 7 0 0 0 14 0"/><path d="M12 17v4"/><path d="M8 21h8"/>' +
+      '</svg>'
+  ) +
+  "')";
+
 const THEME_CSS = `
+  [data-lk-theme] { --cx-mic: ${MIC_SVG}; }
   [data-lk-theme] {
     /* shadcn-style tokens, as rgb() percentage triplets */
     --background: 3.5% 3.5% 4.3%;      /* #09090b */
@@ -97,8 +109,26 @@ const THEME_CSS = `
     -webkit-backdrop-filter: blur(10px);
   }
 
+  /* Launcher: swap the stock robot glyph for a clean microphone, drawn as a
+     mask so it stays crisp at any DPI and needs no network request. */
+  button[aria-label$="agent"] svg {
+    display: none;
+  }
+  button[aria-label$="agent"]::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    margin: auto;
+    width: 22px;
+    height: 22px;
+    background-color: #fff;
+    -webkit-mask: var(--cx-mic) center / contain no-repeat;
+    mask: var(--cx-mic) center / contain no-repeat;
+  }
+
   /* Launcher: brand gradient + lift, echoing the site's --shadow-lift. */
   button[aria-label$="agent"] {
+    position: relative;
     background-image: linear-gradient(140deg, #c084fc 0%, #a855f7 45%, #7c3aed 100%);
     border-color: rgba(255, 255, 255, 0.14) !important;
     box-shadow:
@@ -115,6 +145,36 @@ const THEME_CSS = `
       inset 0 1px 0 rgba(255, 255, 255, 0.28);
   }
   button[aria-label$="agent"]:active { transform: translateY(0) scale(0.97); }
+
+  /* End-call button: keep it red but on-theme, not stock crimson. */
+  [data-lk-theme] button[aria-label*="isconnect"],
+  [data-lk-theme] button[aria-label*="End"] {
+    background-image: linear-gradient(140deg, #f87171 0%, #ef4444 100%);
+    border-color: rgba(255, 255, 255, 0.14) !important;
+    box-shadow: 0 6px 18px -4px rgba(239, 68, 68, 0.5);
+  }
+
+  /* Transcript surface + message bubbles. */
+  [data-lk-theme] [class*="overflow-y-"] {
+    scrollbar-width: thin;
+    scrollbar-color: rgba(168, 85, 247, 0.4) transparent;
+  }
+  [data-lk-theme] [class*="overflow-y-"]::-webkit-scrollbar { width: 6px; }
+  [data-lk-theme] [class*="overflow-y-"]::-webkit-scrollbar-thumb {
+    background: rgba(168, 85, 247, 0.4);
+    border-radius: 999px;
+  }
+
+  /* Chat input: readable on glass. */
+  [data-lk-theme] input,
+  [data-lk-theme] textarea {
+    background-color: rgba(255, 255, 255, 0.05) !important;
+    color: #fff !important;
+  }
+  [data-lk-theme] input::placeholder,
+  [data-lk-theme] textarea::placeholder {
+    color: rgba(255, 255, 255, 0.42) !important;
+  }
 
   @media (prefers-reduced-motion: reduce) {
     button[aria-label$="agent"] { transition: none; }
