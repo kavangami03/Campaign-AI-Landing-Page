@@ -51,10 +51,50 @@ const THEME_CSS = `
     color-scheme: dark;
   }
 
-  /* Panel: soften the frame against a dark page. */
+  /* Panel: translucent glass over the page instead of a flat block. */
   [data-lk-theme] section.bg-background {
-    border: 1px solid rgba(255, 255, 255, 0.08);
-    border-radius: 16px;
+    /* Near-opaque: enough glass for depth at the edges, but text stays
+       readable over the busy gradient hero behind it. */
+    background-image: linear-gradient(
+      160deg,
+      rgba(24, 20, 34, 0.985) 0%,
+      rgba(13, 12, 17, 0.99) 55%,
+      rgba(10, 9, 14, 0.995) 100%
+    ) !important;
+    backdrop-filter: blur(30px) saturate(150%);
+    -webkit-backdrop-filter: blur(30px) saturate(150%);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 18px;
+    box-shadow:
+      0 24px 60px -12px rgba(0, 0, 0, 0.7),
+      0 0 0 1px rgba(168, 85, 247, 0.12),
+      inset 0 1px 0 rgba(255, 255, 255, 0.07);
+  }
+
+  /* Fall back to an opaque panel where backdrop-filter is unsupported. */
+  @supports not (backdrop-filter: blur(1px)) {
+    [data-lk-theme] section.bg-background {
+      background-color: rgb(14, 13, 18) !important;
+    }
+  }
+
+  /* The audio visualizer sits on its own opaque plate. */
+  [data-lk-theme] section.bg-background div[class*="size-[450px]"] {
+    background-color: transparent !important;
+  }
+
+  /* Nested .bg-background elements inherit the panel colour and read as
+     opaque blobs on glass — make the inner ones transparent instead. */
+  [data-lk-theme] section.bg-background .bg-background {
+    background-color: transparent !important;
+  }
+
+  /* The control bar keeps a faint surface so it stays legible. */
+  [data-lk-theme] section.bg-background .bg-background[class*="rounded-"] {
+    background-color: rgba(255, 255, 255, 0.06) !important;
+    border-color: rgba(255, 255, 255, 0.1) !important;
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
   }
 
   /* Launcher: brand gradient + lift, echoing the site's --shadow-lift. */

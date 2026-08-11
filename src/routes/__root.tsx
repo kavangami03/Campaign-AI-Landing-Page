@@ -190,6 +190,8 @@ function RootShell({ children }: { children: ReactNode }) {
           src="https://cloud.livekit.io/embed-popup.js"
           data-lk-agent="CA_j8uznGS4JH4g"
           data-lk-color="#a855f7"
+          data-lk-theme="dark"
+          data-lk-listening-text="Start talking to CampaignX…"
         />
       </body>
     </html>
