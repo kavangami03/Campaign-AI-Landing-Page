@@ -114,13 +114,19 @@ const THEME_CSS = `
   button[aria-label$="agent"] svg {
     display: none;
   }
+  /* The launcher paints its colour with absolutely-positioned overlay divs,
+     so the glyph must sit above them (z-index) and be centred by the button's
+     own box. position:absolute here is safe — it is the ::after that is
+     positioned, not the button, whose position:fixed stays intact. */
   button[aria-label$="agent"]::after {
     content: "";
     position: absolute;
-    inset: 0;
-    margin: auto;
-    width: 22px;
-    height: 22px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 20;
+    width: 21px;
+    height: 21px;
     background-color: #fff;
     -webkit-mask: var(--cx-mic) center / contain no-repeat;
     mask: var(--cx-mic) center / contain no-repeat;
@@ -128,7 +134,6 @@ const THEME_CSS = `
 
   /* Launcher: brand gradient + lift, echoing the site's --shadow-lift. */
   button[aria-label$="agent"] {
-    position: relative;
     background-image: linear-gradient(140deg, #c084fc 0%, #a855f7 45%, #7c3aed 100%);
     border-color: rgba(255, 255, 255, 0.14) !important;
     box-shadow:
@@ -176,6 +181,105 @@ const THEME_CSS = `
     color: rgba(255, 255, 255, 0.42) !important;
   }
 
+  /* ---- Transcript ---------------------------------------------------- */
+
+  /* The visualizer sits on a z-50 layer above the transcript, so it lands on
+     top of the messages. Once there is a conversation it is decorative — drop
+     it behind the text and fade it back. */
+  [data-lk-theme] section.bg-background > div[class*="z-50"]:has(div[class*="size-[450px]"]) {
+    z-index: 0 !important;
+    opacity: 0.5;
+    pointer-events: none;
+  }
+  [data-lk-theme] div[class*="size-[450px]"] {
+    background-color: transparent !important;
+  }
+
+  /* Messages need to scroll; the widget ships overflow-y-hidden. */
+  [data-lk-theme] [class*="overflow-y-hidden"] {
+    overflow-y: auto !important;
+  }
+
+  /* Give the transcript room to breathe. */
+  [data-lk-theme] .is-assistant,
+  [data-lk-theme] .is-user {
+    max-width: 88% !important;
+  }
+
+  /* Speech bubbles. The widget exposes .is-user / .is-assistant per row. */
+  [data-lk-theme] .is-assistant > div,
+  [data-lk-theme] .is-user > div {
+    padding: 10px 14px;
+    border-radius: 18px;
+    font-size: 13.5px;
+    line-height: 1.5;
+    letter-spacing: 0.005em;
+  }
+  [data-lk-theme] .is-assistant > div {
+    background: rgba(255, 255, 255, 0.07);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-bottom-left-radius: 6px;
+    color: rgba(255, 255, 255, 0.94);
+  }
+  [data-lk-theme] .is-user > div {
+    background: linear-gradient(140deg, #a855f7 0%, #7c3aed 100%);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    border-bottom-right-radius: 6px;
+    color: #fff;
+    box-shadow: 0 4px 14px -4px rgba(168, 85, 247, 0.5);
+  }
+
+  /* ---- Composer ------------------------------------------------------ */
+
+  /* Lighten the heavy slab around the input. */
+  [data-lk-theme] div[class*="rounded-[31px]"] {
+    background: rgba(255, 255, 255, 0.04) !important;
+    border: 1px solid rgba(255, 255, 255, 0.1) !important;
+    border-radius: 22px !important;
+    padding: 10px !important;
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+  }
+  [data-lk-theme] div[class*="rounded-[31px]"] > div:first-child {
+    border-bottom-color: rgba(255, 255, 255, 0.08) !important;
+  }
+
+  /* ---- Visualizer ---------------------------------------------------- */
+
+  /* The idle visualizer plate is a flat grey box; make it a soft brand-tinted
+     halo instead so the empty state does not look broken. */
+  [data-lk-theme] div[class*="size-[450px]"] {
+    background-image: radial-gradient(
+      circle at 50% 50%,
+      rgba(168, 85, 247, 0.16) 0%,
+      rgba(168, 85, 247, 0.05) 45%,
+      transparent 70%
+    ) !important;
+    border-radius: 999px !important;
+    border: none !important;
+  }
+
+  /* The bars idle at 10% opacity (bg-current/10) and brighten while the agent
+     speaks. Raise the idle floor so the resting state still reads as alive,
+     and let the widget's own opacity animation ride on top. */
+  [data-lk-theme] div[class*="size-[450px]"] > * {
+    background-image: linear-gradient(180deg, #c084fc 0%, #a855f7 100%) !important;
+    border-radius: 999px !important;
+    opacity: 0.85;
+    box-shadow: 0 0 12px -2px rgba(168, 85, 247, 0.55);
+  }
+
+  /* ---- Control bar --------------------------------------------------- */
+
+  /* Round the mic/transcript cluster and lift it off the panel. */
+  [data-lk-theme] div[class*="rounded-[31px]"] > div:last-child button,
+  [data-lk-theme] div[class*="rounded-[31px]"] > div:last-child [class*="rounded-full"] {
+    transition: transform 160ms ease, background-color 160ms ease;
+  }
+  [data-lk-theme] div[class*="rounded-[31px]"] > div:last-child button:hover {
+    transform: translateY(-1px);
+  }
+
   @media (prefers-reduced-motion: reduce) {
     button[aria-label$="agent"] { transition: none; }
     button[aria-label$="agent"]:hover { transform: none; }
@@ -188,6 +292,7 @@ const MARK = "data-campaignx-theme";
 export default function LiveKitTheme() {
   useEffect(() => {
     let done = false;
+    let openedTranscript = false;
 
     const apply = () => {
       const root = document.getElementById(HOST_ID)?.shadowRoot;
@@ -199,6 +304,18 @@ export default function LiveKitTheme() {
         el.setAttribute("data-lk-theme", "dark");
         el.classList.add("dark");
       });
+
+      // The transcript panel defaults to collapsed, which leaves the popup
+      // looking empty. Open it once per session so the conversation is visible.
+      if (!openedTranscript) {
+        const toggle = root.querySelector(
+          'button[aria-label*="transcript" i][data-state="off"]'
+        );
+        if (toggle instanceof HTMLElement) {
+          toggle.click();
+          openedTranscript = true;
+        }
+      }
 
       if (!root.querySelector(`style[${MARK}]`)) {
         const style = document.createElement("style");
