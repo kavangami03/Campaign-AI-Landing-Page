@@ -186,12 +186,14 @@ function RootShell({ children }: { children: ReactNode }) {
         {/* LiveKit voice agent widget. Must be a parser-inserted classic script at
             the end of <body>: the bundle reads config from document.currentScript
             (null for async scripts) and synchronously calls document.body.appendChild. */}
+        {/* Swap data-lk-agent for the ID shown in LiveKit Cloud → Agents once the
+            Gujarati agent in /agent is deployed. See agent/SETUP.md step 4. */}
         <script
           src="https://cloud.livekit.io/embed-popup.js"
           data-lk-agent="CA_j8uznGS4JH4g"
           data-lk-color="#a855f7"
           data-lk-theme="dark"
-          data-lk-listening-text="Start talking to CampaignX…"
+          data-lk-listening-text="CampaignX સાથે વાત કરો…"
         />
       </body>
     </html>
